@@ -1,0 +1,89 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[headsep=1cm,headheight=3cm,left=3.5cm,right=3.5cm,top=2.5cm,bottom=2.5cm,a4paper]{geometry}
+
+\linespread{1.3}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\usepackage[spanish]{babel}
+
+%% Fuentes personalizadas para utilizar con XeTeX
+\usepackage{fontspec}
+%\setmainfont{IBM Plex Sans}
+%\setmonofont[Scale=0.9]{IBM Plex Mono}
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*}
+\setlist[enumerate]{leftmargin=*}
+
+\usepackage{changepage}
+
+\newcommand{\term}[2]{\textbf{#1}\quad#2\\}
+\newcounter{ObjCounter}
+\newcommand{\obj}[1]{\addtocounter{ObjCounter}{1}\textbf{\rmfamily OBJ-\theObjCounter}\quad#1\\}
+\newcounter{RFCounter}
+\newcommand{\rf}[1]{\addtocounter{RFCounter}{1}\textbf{\rmfamily RF-\theRFCounter}\quad#1\\}
+\newcounter{RNCounter}
+\newcommand{\rn}[1]{\addtocounter{RNCounter}{1}\textbf{\rmfamily RN-\theRNCounter}\quad#1\\}
+\newcounter{RICounter}
+
+\newcommand{\ri}[1]{\addtocounter{RICounter}{1}\textbf{\rmfamily RI-\theRICounter}\quad#1\\}
+
+\newenvironment{rienv}[1]
+	{\addtocounter{RICounter}{1}\textbf{\rmfamily RI-\theRICounter}\quad#1\begin{adjustwidth}{1em}{0em}}
+	{\end{adjustwidth}}
+
+\usepackage{array}
+\usepackage{adjustbox}
+
+\title{Práctica 1. Descripción del sistema y especificación de requisitos \large Diseño y Desarrollo de Sistemas de Información}
+\author{Sofía Almedia Bruno \and José María Martín Luque \and Antonio Martín Ruiz \and Luis Antonio Ortega Andrés}
+
+\begin{document}
+
+\maketitle
+
+\section{Descripción del sistema} % (fold)
+\label{sec:descripcion_del_sistema}
+El sistema es una red social para gestionar y compartir opiniones sobre música. Incluye un registro de la música que el usuario ha escuchado así como un sistema de sugerencias generadas a partir de sus escuchas y las de las personas a las que sigue.
+
+Se pueden consultar y añadir tanto canciones como autores y géneros. 
+%%Subsistema de música
+
+%%Subsistema de usuarios
+
+%%Subsistema social
+
+%%Subsistema de búsqueda
+
+
+\section{Descripción de los implicados} % (fold)
+\label{sec:descripción_de_los_implicados}
+
+\section{Lista estructurada de requisitos} % (fold)
+\label{sec:lista_estructurada_de_requisitos}
+
+\subsection{Requisitos funcionales}
+
+
+
+\subsection{Requisitos no funcionales}
+  \rn{Consistencia en los identificadores del sistema (unicidad). Esto incluye pacientes, médicos, instalaciones, facturas...}
+
+
+\subsection{Requisitos de información}
+
+Se incluye información que es necesaria incluir en el sistema.
+
+
+\begin{rienv}{Recetas}
+	Información sobre las recetas.
+
+  	\textbf{Contenido:} Id\_receta, nombre, descripción.
+\end{rienv}
+  
+% section lista_estructurada_de_requisitos (end)
+
+	
+\end{document}
