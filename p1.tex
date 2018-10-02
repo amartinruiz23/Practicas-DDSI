@@ -48,15 +48,37 @@
 \label{sec:descripcion_del_sistema}
 El sistema es una red social para gestionar y compartir opiniones sobre música. Incluye un registro de la música que el usuario ha escuchado así como un sistema de sugerencias generadas a partir de sus escuchas y las de las personas a las que sigue.
 
-Se pueden consultar y añadir tanto canciones como autores y géneros. 
 %%Subsistema de música
+Se pueden consultar y añadir tanto canciones como autores y géneros. 
+
+Para incorporar una canción es necesario especificar título (en una serie de hasta 50 caracteres), autor o autores de los preexistentes y género de entre los preexistentes. Adicionalmente se podrán completar estos datos con la fecha de lanzamiento (8 números en formato de fecha dd/mm/aaaa, álbum al que pertenece (serie de hasta 20 caracteres) o portada (imagen PNG de dimensiones 512x512).
+
+Para agregar un autor es necesario especificar su nombre (una lista en la cual cada elemento es una serie de hasta 30 caracteres), y adicionalmente se puede indicar su procedencia (ciudad y país, como una lista de 20 caracteres cada uno), intervalo de actividad (dos fechas en el formato previamente especificado, siendo la segunda sustituible por ``Actualidad''), fotografía (imagen PNG) y una biografía (en una serie de hasta 2000 caracteres) y géneros relacionados de entre los preexistentes.
+
+Para agregar un género musical solo es necesario instroducir un nombre (como una cadena de hasta 20 caracteres). Adicionalmente se puede añadir una breve descripción (como una cadena de hasta 500 caracteres).
+
+Cualquiera de estos datos pueden ser modificados o eliminados por un usuario con los permisos adecuados.
 
 %%Subsistema de usuarios
 
+Para añadir un nuevo usuario al sistema es imprescindible indicar nombre de usuario (una serie de hasta 12 caracteres) y una contraseña (una serie de entre 7 y 20 caracteres). Además se puede indicar un correo electrónico (con formato standard), una biografía (como una serie de hasta 500 caracteres) y una fotografía (imagen PNG). 
+
+Existen tres tipos de usuario según sus permisos. Los administradores pueden añadir, editar y eliminar cualquier elemento de la base de datos. Los moderadores se encargan de añadir, modificiar y borrar canciones, autores y géneros. Su función es mantener el sistema actualizado y correcto. Los usuarios por defecto solo pueden modificar su propio perfil. Al crear un nuevo usuario, este será por defecto. Un administrador puede convertir a un usuario por defecto en moderador o administrador.
+
+Cada usuario tiene asociado un perfil en el que se mostrarán las canciones que el usuario ha marcado como escuchadas así como sus valoraciones, comentarios y canciones favoritas. 
+
 %%Subsistema social
+
+Cualquier usuario puede marcar una canción como escuchada, como pendiente o como favorita, añadir una valoración (un valor entero entre 0 y 10) y un comentario (una serie de hasta 500 caracteres). 
+
+Un usuario puede seguir a otro usuario, teniendo así una notificación de cuándo el usuario al que sigue realiza alguna actividad. Las sugerencias de búsqueda se verán también influidas por los usuarios a los que se sigue. 
+
 
 %%Subsistema de búsqueda
 
+Se pueden buscar canciones en el sistema por su título, autor, género, álbum, año... También pueden consultarse autores y géneros, de los cuales se podrá obtener la información que exista en el sistema y una lista de canciones relacionadas. 
+
+Existe un sistema de sugerencias consistente en búsquedas programadas automáticamente en función de las canciones que un usuario y sus seguidos hayan añadido a favoritos y valorado, teniendo en cuenta la puntuación dada.
 
 \section{Descripción de los implicados} % (fold)
 \label{sec:descripción_de_los_implicados}
