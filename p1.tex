@@ -19,20 +19,40 @@
 
 \usepackage{changepage}
 
+%% estos creo que no los usados... los dejo por si acaso
 \newcommand{\term}[2]{\textbf{#1}\quad#2\\}
 \newcounter{ObjCounter}
 \newcommand{\obj}[1]{\addtocounter{ObjCounter}{1}\textbf{\rmfamily OBJ-\theObjCounter}\quad#1\\}
-\newcounter{RFCounter}
-\newcommand{\rf}[1]{\addtocounter{RFCounter}{1}\textbf{\rmfamily RF-\theRFCounter}\quad#1\\}
-\newcounter{RNCounter}
-\newcommand{\rn}[1]{\addtocounter{RNCounter}{1}\textbf{\rmfamily RN-\theRNCounter}\quad#1\\}
-\newcounter{RICounter}
 
-\newcommand{\ri}[1]{\addtocounter{RICounter}{1}\textbf{\rmfamily RI-\theRICounter}\quad#1\\}
+% Contadores requisitos funcionales
+\newcounter{RFuCounter} % Requisitos funcionales 1 (música)
+\newcommand{\rfu}[1]{\addtocounter{RFuCounter}{1}\textbf{\rmfamily RF 1.\theRFuCounter}\quad#1\\}
+\newcounter{RFdCounter} % Requisitos funcionales 2 (usuario)
+\newcommand{\rfd}[1]{\addtocounter{RFdCounter}{1}\textbf{\rmfamily RF 2.\theRFdCounter}\quad#1\\}
+\newcounter{RFtCounter} % Requisitos funcionales 3 (social)
+\newcommand{\rft}[1]{\addtocounter{RFtCounter}{1}\textbf{\rmfamily RF 3.\theRFtCounter}\quad#1\\}
+\newcounter{RFcCounter} % Requisitos funcionales 4 (búsqueda)
+\newcommand{\rfc}[1]{\addtocounter{RFcCounter}{1}\textbf{\rmfamily RF 4.\theRFcCounter}\quad#1\\}
 
-\newenvironment{rienv}[1]
-	{\addtocounter{RICounter}{1}\textbf{\rmfamily RI-\theRICounter}\quad#1\begin{adjustwidth}{1em}{0em}}
-	{\end{adjustwidth}}
+% Contadores requisitos de datos
+\newcounter{RDuCounter} % Requisitos de datos 1 
+\newcommand{\rdu}[1]{\addtocounter{RDuCounter}{1}\textbf{\rmfamily RD 1.\theRDuCounter}\quad#1\\}
+\newcounter{RDdCounter} % Requisitos de datos 2 
+\newcommand{\rdd}[1]{\addtocounter{RDdCounter}{1}\textbf{\rmfamily RD 2.\theRDdCounter}\quad#1\\}
+\newcounter{RDtCounter} % Requisitos de datos 3 
+\newcommand{\rdt}[1]{\addtocounter{RDtCounter}{1}\textbf{\rmfamily RD 3.\theRDtCounter}\quad#1\\}
+\newcounter{RDcCounter} % Requisitos de datos 4 
+\newcommand{\rdc}[1]{\addtocounter{RDcCounter}{1}\textbf{\rmfamily RD 4.\theRDuCounter}\quad#1\\}
+
+% Contadores restricciones semánticas
+\newcounter{RSuCounter} % Restricciones semánticas 1 
+\newcommand{\rsu}[1]{\addtocounter{RSuCounter}{1}\textbf{\rmfamily RS 1.\theRSuCounter}\quad#1\\}
+\newcounter{RSdCounter} % Restricciones semánticas 2 
+\newcommand{\rsd}[1]{\addtocounter{RSdCounter}{1}\textbf{\rmfamily RS 2.\theRSdCounter}\quad#1\\}
+\newcounter{RStCounter} % Restricciones semánticas 3 
+\newcommand{\rst}[1]{\addtocounter{RStCounter}{1}\textbf{\rmfamily RS 3.\theRStCounter}\quad#1\\}
+\newcounter{RScCounter} % Restricciones semánticas 4
+\newcommand{\rsc}[1]{\addtocounter{RScCounter}{1}\textbf{\rmfamily RS 4.\theRScCounter}\quad#1\\}
 
 \usepackage{array}
 \usepackage{adjustbox}
@@ -80,14 +100,18 @@ Se pueden buscar canciones en el sistema por su título, autor, género, álbum,
 
 Existe un sistema de sugerencias consistente en búsquedas programadas automáticamente en función de las canciones que un usuario y sus seguidos hayan añadido a favoritos y valorado, teniendo en cuenta la puntuación dada.
 
-\section{Requisitos de datos} % (fold)
+\section{Requisitos de datos}
+\subsection{Datos de entrada}
+\subsection{Datos manejados}
+\subsection{Datos de salida}
 
-
-\section{Requisitos funcionales} % (fold)
-
+\section{Requisitos funcionales}
+\rfu{prueba}
+\rfu{2}
 
 \section{Restricciones semánticas}
 
+\rsu{restricciones}
 
 \section{Validación cruzada de requisitos}
 
