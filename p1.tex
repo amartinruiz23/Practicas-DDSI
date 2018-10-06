@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper]{article}
 
-\usepackage[headsep=1cm,headheight=3cm,left=3.5cm,right=3.5cm,top=2.5cm,bottom=2.5cm,a4paper]{geometry}
+\usepackage[hea3dsep=1cm,headheight=3cm,left=3.5cm,right=3.5cm,top=2.5cm,bottom=2.5cm,a4paper]{geometry}
 
 \linespread{1.3}
 \setlength{\parindent}{0pt}
@@ -24,7 +24,7 @@
 \newcounter{ObjCounter}
 \newcommand{\obj}[1]{\addtocounter{ObjCounter}{1}\textbf{\rmfamily OBJ-\theObjCounter}\quad#1\\}
 
-% Contadores requisitos funcionales
+% Contadores requisitos funcionales fs
 \newcounter{RFuCounter} % Requisitos funcionales 1 (música)
 \newcommand{\rfu}[1]{\addtocounter{RFuCounter}{1}\textbf{\rmfamily RF 1.\theRFuCounter}\quad#1\\}
 \newcounter{RFdCounter} % Requisitos funcionales 2 (usuario)
@@ -102,17 +102,81 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 \section{Requisitos de datos}
 \subsection{Datos de entrada}
+
+\rdd{Datos utilizados en el registro de un nuevo usuario}
+\begin{itemize}
+\item Alias
+\item Contraseña
+\item Correo electronico (opcional)
+\item Fecha de nacimiento (opcional)
+\item Foto (opcional)
+\item Biografía (opcional)
+\end{itemize}
+\rdd{Datos de inicio de sesión:}
+\begin{itemize}
+\item Alias
+\item Contraseña
+\end{itemize}
+\rdd{Datos introducidos para la modificación de un dato personal}
+\begin{itemize}
+\item Dato antiguo
+\item Dato nuevo
+\end{itemize}
+
 \subsection{Datos manejados}
+\rdd{Datos almacenados en el registro de un usuario}
+\begin{itemize}
+\item Alias
+\item Contraseña
+\item Correo electronico
+\item Fecha de nacimiento
+\item Foto
+\item Biografía
+\end{itemize}
+\rdd{Datos almacenados ante la modificación de un dato personal}
+\begin{itemize}
+\item Nuevo dato
+\end{itemize}
+\rdd{Datos eliminados ante la modificacion de un dato personal}
+\begin{itemize}
+\item Dato antiguo.
+\end{itemize}
+
 \subsection{Datos de salida}
 
 \section{Requisitos funcionales}
-\rfu{prueba}
-\rfu{2}
+
+\rfd{Registro de un nuevo usuario}
+Ante el registro de un nuevo usuario, este debe proporcionar los siguientes datos:
+RD1
+El sistema en respuesta almacenará los siguientes datos:
+RD2
+\rfd{Inicio de sesión}
+Para iniciar sesión el usuario deberá proporcionar los siguientes datos:
+RD3
+El sistema en respuesta le permitirá acceder si los datos introducidos son correctos.
+\rfd{Modificar un dato}
+Para cambiar un dato será necesario haber accedido al sistema y porporcionar los datos
+RD4
+El sistema almacenará los datos
+RD5
+\rfd{Dar baja}
+Para dar de baja una cuenta en el sistema será necesario hacer accedido a él.
+
 
 \section{Restricciones semánticas}
 
-\rsu{restricciones}
+\rsd{restricciones}
+\begin{itemize}
+\item El campo alias se compondrá de una serie alfanumérica de hasta 12 caracteres.
+\item La contraseña se compondrá de una serie alfanumérica de entre 7 y 20 caracteres.
+\item La biografía se compondrá de una serie alfanumérica de hasta 500 caracteres.
+\item La fotografia de perfil sera una imagen en formato png.
+\item La fecha de nacimiento tendra el formato DD/MM/YYYY
+\item Los datos de registro opcionales no rellenos se almacenaran como cadenas vacias.
+\end{itemize}
 
 \section{Validación cruzada de requisitos}
+
 
 \end{document}
