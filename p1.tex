@@ -82,25 +82,25 @@
 % Contadores requisitos de datos
 \newcounter{RD} 
 \setcounter{RD}{1}
-\newcounter{RDu}[RD] 
+\newcounter{RDu}
 \setcounter{RDu}{0}
 \renewcommand{\theRDu}{\theRD.\arabic{RDu}}
 \newcommand{\rdu}[1]{\noindent%
   \refstepcounter{RDu}\textbf{RD \theRDu}\quad #1\\%
 }
-\newcounter{RDd}[RD] 
+\newcounter{RDd}
 \setcounter{RDd}{0}
 \renewcommand{\theRDd}{\theRD.\arabic{RDd}}
 \newcommand{\rdd}[1]{\noindent%
   \refstepcounter{RDd}\textbf{RD \theRDd}\quad #1\\%
 }
-\newcounter{RDt}[RD] 
+\newcounter{RDt}
 \setcounter{RDt}{0}
 \renewcommand{\theRDt}{\theRD.\arabic{RDt}}
 \newcommand{\rdt}[1]{\noindent%
   \refstepcounter{RDt}\textbf{RD \theRDt}\quad #1\\%
 }
-\newcounter{RDc}[RD] 
+\newcounter{RDc}
 \setcounter{RDc}{0}
 \renewcommand{\theRDc}{\theRD.\arabic{RDc}}
 \newcommand{\rdc}[1]{\noindent%
@@ -188,6 +188,32 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 % Música
 
+\rdu{Datos utilizados al añadir una nueva canción \label{rdu:datos-nueva-cancion}}
+\begin{itemize}
+  \item Título
+  \item Fecha
+  \item Autor
+  \item Género
+  \item Álbum 
+  \item Portada (opcional)
+\end{itemize}
+
+\rdu{Datos utilizados al añadir un nuevo género \label{rdu:datos-nuevo-genero}}
+\begin{itemize}
+  \item Nombre
+  \item Descripción
+\end{itemize}
+
+\rdu{Datos utilizados al añadir un nuevo autor\label{rdu:datos-nuevo-autor}}
+
+\begin{itemize}
+  \item Nombre
+  \item Procedencia (opcional)
+  \item Intervalo de actividad (inicio, fin) (opcional)
+  \item Foto (opcional)
+  \item Biografía (opcional)
+\end{itemize}
+
 \refstepcounter{RD}
 
 \rdd{Datos utilizados en el registro de un nuevo usuario\label{rdd:registro-usuario}}
@@ -219,6 +245,40 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 % Búsqueda
 
 \subsection{Datos manejados}
+\setcounter{RD}{1}
+
+% Música
+\rdu{Datos utilizados almacenados al añadir una nueva canción}
+\begin{itemize}
+  \item Título
+  \item Fecha
+  \item Autor
+  \item Género
+  \item Álbum 
+  \item Portada 
+\end{itemize}
+
+\rdu{Datos almacenados al añadir un nuevo género}
+\begin{itemize}
+  \item Nombre
+  \item Descripción
+\end{itemize}
+
+\rdu{Datos almacenados al añadir un nuevo autor}
+
+\begin{itemize}
+  \item Nombre
+  \item Procedencia
+  \item Intervalo de actividad (inicio, fin)
+  \item Foto
+  \item Biografía
+  \item Géneros
+\end{itemize}
+
+
+\refstepcounter{RD}
+
+% Usuario
 \rdd{Datos almacenados en el registro de un usuario}
 \begin{itemize}
 \item Alias
@@ -237,11 +297,40 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Dato antiguo.
 \end{itemize}
 
+\refstepcounter{RD}
+
+% Social
+
+\refstepcounter{RD}
+
+% Búsqueda
+
 \subsection{Datos de salida}
+\setcounter{RD}{1}
+
+\refstepcounter{RD}
+
+% Usuario
+
+
+\refstepcounter{RD}
+
+% Social
+
+\refstepcounter{RD}
+
+% Búsqueda
 
 \section{Requisitos funcionales}
 
 \rfu{Añadir una canción\label{rfu:añadir-cancion}}
+Para poder añadir una canción el usuario necesita ser administrador o moderador. El usuario debe proporcionar los datos RD \ref{rdu:datos-nueva-cancion}, que el sistema almacenará.
+
+\rfu{Añadir un nuevo autor}
+Para poder añadir un autor el usuario necesita ser administrador o moderador. El usuario debe proporcionar los datos RD \ref{rdu:datos-nuevo-autor}, que el sistema almacenará.
+
+\rfu{Añadir un nuevo género}
+Para poder añadir un género el usuario necesita ser administrador o moderador. El usuario debe proporcionar los datos RD \ref{rdu:datos-nuevo-genero}, que el sistema almacenará.
 
 \refstepcounter{RF}
 
@@ -275,6 +364,31 @@ Para dar de baja una cuenta en el sistema será necesario hacer accedido a él.
 
 
 \section{Restricciones semánticas}
+
+\rsu{Restricciones al añadir una canción}
+\begin{itemize}
+  \item El título de la canción tendrá hasta 50 caracteres.
+  \item El autor de la canción ya debe existir en la base de datos.
+  \item La fecha de lanzamiento debe constar de 8 números con el formato dd/mm/aaaa.
+  \item El álbum al que pertenece la canción es una cadena de 20 caracteres como máximo.
+  \item La portada es una imagen PNG de dimensiones 512 $\times$ 512 píxeles.
+\end{itemize}
+
+\rsu{Restricciones al añadir un autor}
+\begin{itemize}
+  \item El nombre del autor tendrá hasta 30 caracteres.
+  \item El lugar de procedencia, ciudad y país, se deberá seleccionar de dos listas ya predefinidas. 
+  \item El intervalo de actividad constará de dos fechas, ambas en el formato dd/mm/aaaa, salvo en el caso de que el autor siga en activo, pudiéndose sustituir la segunda por ``Actualidad''.
+  \item La fotografía deberá ser una imagen PNG.
+  \item La biografía podrá tener 2000 caracteres como máximo.
+  \item Los géneros del autor deberán seleccionarse de entre la lista de géneros creados.
+\end{itemize}
+
+\rsu{Restricciones al añadir un género}
+\begin{itemize}
+  \item El nombre del género tendrá como máximo 20 caracteres.
+  \item La descripción del género tendrá como máximo 500 caracteres.
+\end{itemize}
 
 \refstepcounter{RS}
 
