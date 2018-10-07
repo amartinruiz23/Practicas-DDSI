@@ -51,34 +51,91 @@
 \newcommand{\obj}[1]{\addtocounter{ObjCounter}{1}\textbf{\rmfamily OBJ-\theObjCounter}\quad#1\\}
 
 % Contadores requisitos funcionales fs
-\newcounter{RFuCounter} % Requisitos funcionales 1 (música)
-\newcommand{\rfu}[1]{\addtocounter{RFuCounter}{1}\textbf{\rmfamily RF 1.\theRFuCounter}\quad#1\\}
-\newcounter{RFdCounter} % Requisitos funcionales 2 (usuario)
-\newcommand{\rfd}[1]{\addtocounter{RFdCounter}{1}\textbf{\rmfamily RF 2.\theRFdCounter}\quad#1\\}
-\newcounter{RFtCounter} % Requisitos funcionales 3 (social)
-\newcommand{\rft}[1]{\addtocounter{RFtCounter}{1}\textbf{\rmfamily RF 3.\theRFtCounter}\quad#1\\}
-\newcounter{RFcCounter} % Requisitos funcionales 4 (búsqueda)
-\newcommand{\rfc}[1]{\addtocounter{RFcCounter}{1}\textbf{\rmfamily RF 4.\theRFcCounter}\quad#1\\}
+\newcounter{RF} 
+\setcounter{RF}{1}
+\newcounter{RFu}[RF] 
+\setcounter{RFu}{0}
+\renewcommand{\theRFu}{\theRF.\arabic{RFu}}
+\newcommand{\rfu}[1]{\noindent%
+  \refstepcounter{RFu}\textbf{RF \theRFu}\quad #1\\%
+}
+\newcounter{RFd}[RF] 
+\setcounter{RFd}{0}
+\renewcommand{\theRFd}{\theRF.\arabic{RFd}}
+\newcommand{\rfd}[1]{\noindent%
+  \refstepcounter{RFd}\textbf{RF \theRFd}\quad #1\\%
+}
+\newcounter{RFt}[RF] 
+\setcounter{RFt}{0}
+\renewcommand{\theRFt}{\theRF.\arabic{RFt}}
+\newcommand{\rft}[1]{\noindent%
+  \refstepcounter{RFt}\textbf{RF \theRFt}\quad #1\\%
+}
+\newcounter{RFc}[RF] 
+\setcounter{RFc}{0}
+\renewcommand{\theRFc}{\theRF.\arabic{RFc}}
+\newcommand{\rfc}[1]{\noindent%
+  \refstepcounter{RFc}\textbf{RF \theRFc}\quad #1\\%
+}
+
 
 % Contadores requisitos de datos
-\newcounter{RDuCounter} % Requisitos de datos 1 
-\newcommand{\rdu}[1]{\addtocounter{RDuCounter}{1}\textbf{\rmfamily RD 1.\theRDuCounter}\quad#1\\}
-\newcounter{RDdCounter} % Requisitos de datos 2 
-\newcommand{\rdd}[1]{\addtocounter{RDdCounter}{1}\textbf{\rmfamily RD 2.\theRDdCounter}\quad#1\\}
-\newcounter{RDtCounter} % Requisitos de datos 3 
-\newcommand{\rdt}[1]{\addtocounter{RDtCounter}{1}\textbf{\rmfamily RD 3.\theRDtCounter}\quad#1\\}
-\newcounter{RDcCounter} % Requisitos de datos 4 
-\newcommand{\rdc}[1]{\addtocounter{RDcCounter}{1}\textbf{\rmfamily RD 4.\theRDuCounter}\quad#1\\}
+\newcounter{RD} 
+\setcounter{RD}{1}
+\newcounter{RDu}[RD] 
+\setcounter{RDu}{0}
+\renewcommand{\theRDu}{\theRD.\arabic{RDu}}
+\newcommand{\rdu}[1]{\noindent%
+  \refstepcounter{RDu}\textbf{RD \theRDu}\quad #1\\%
+}
+\newcounter{RDd}[RD] 
+\setcounter{RDd}{0}
+\renewcommand{\theRDd}{\theRD.\arabic{RDd}}
+\newcommand{\rdd}[1]{\noindent%
+  \refstepcounter{RDd}\textbf{RD \theRDd}\quad #1\\%
+}
+\newcounter{RDt}[RD] 
+\setcounter{RDt}{0}
+\renewcommand{\theRDt}{\theRD.\arabic{RDt}}
+\newcommand{\rdt}[1]{\noindent%
+  \refstepcounter{RDt}\textbf{RD \theRDt}\quad #1\\%
+}
+\newcounter{RDc}[RD] 
+\setcounter{RDc}{0}
+\renewcommand{\theRDc}{\theRD.\arabic{RDc}}
+\newcommand{\rdc}[1]{\noindent%
+  \refstepcounter{RDc}\textbf{RD \theRDc}\quad #1\\%
+}
 
 % Contadores restricciones semánticas
-\newcounter{RSuCounter} % Restricciones semánticas 1 
-\newcommand{\rsu}[1]{\addtocounter{RSuCounter}{1}\textbf{\rmfamily RS 1.\theRSuCounter}\quad#1\\}
-\newcounter{RSdCounter} % Restricciones semánticas 2 
-\newcommand{\rsd}[1]{\addtocounter{RSdCounter}{1}\textbf{\rmfamily RS 2.\theRSdCounter}\quad#1\\}
-\newcounter{RStCounter} % Restricciones semánticas 3 
-\newcommand{\rst}[1]{\addtocounter{RStCounter}{1}\textbf{\rmfamily RS 3.\theRStCounter}\quad#1\\}
-\newcounter{RScCounter} % Restricciones semánticas 4
-\newcommand{\rsc}[1]{\addtocounter{RScCounter}{1}\textbf{\rmfamily RS 4.\theRScCounter}\quad#1\\}
+\newcounter{RS} 
+\setcounter{RS}{1}
+\newcounter{RSu}[RS] 
+\setcounter{RSu}{0}
+\renewcommand{\theRSu}{\theRS.\arabic{RSu}}
+\newcommand{\rsu}[1]{\noindent%
+  \refstepcounter{RSu}\textbf{RS \theRSu}\quad #1\\%
+}
+\newcounter{RSd}[RS] 
+\setcounter{RSd}{0}
+\renewcommand{\theRSd}{\theRS.\arabic{RSd}}
+\newcommand{\rsd}[1]{\noindent%
+  \refstepcounter{RSd}\textbf{RS \theRSd}\quad #1\\%
+}
+\newcounter{RSt}[RS] 
+\setcounter{RSt}{0}
+\renewcommand{\theRSt}{\theRS.\arabic{RSt}}
+\newcommand{\rst}[1]{\noindent%
+  \refstepcounter{RSt}\textbf{RS \theRSt}\quad #1\\%
+}
+\newcounter{RSc}[RS] 
+\setcounter{RSc}{0}
+\renewcommand{\theRSc}{\theRS.\arabic{RSc}}
+\newcommand{\rsc}[1]{\noindent%
+  \refstepcounter{RSc}\textbf{RS \theRSc}\quad #1\\%
+}
+
+
 
 \usepackage{array}
 \usepackage{adjustbox}
@@ -129,7 +186,11 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \section{Requisitos de datos}
 \subsection{Datos de entrada}
 
-\rdd{Datos utilizados en el registro de un nuevo usuario}
+% Música
+
+\refstepcounter{RD}
+
+\rdd{Datos utilizados en el registro de un nuevo usuario\label{rdd:registro-usuario}}
 \begin{itemize}
 \item Alias
 \item Contraseña
@@ -138,7 +199,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Foto (opcional)
 \item Biografía (opcional)
 \end{itemize}
-\rdd{Datos de inicio de sesión:}
+\rdd{Datos de inicio de sesión \label{rdd:inicio-sesion}}
 \begin{itemize}
 \item Alias
 \item Contraseña
@@ -148,6 +209,14 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Dato antiguo
 \item Dato nuevo
 \end{itemize}
+
+\refstepcounter{RD}
+
+% Social
+
+\refstepcounter{RD}
+
+% Búsqueda
 
 \subsection{Datos manejados}
 \rdd{Datos almacenados en el registro de un usuario}
@@ -172,27 +241,44 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 \section{Requisitos funcionales}
 
+\rfu{Añadir una canción\label{rfu:añadir-cancion}}
+
+\refstepcounter{RF}
+
 \rfd{Registro de un nuevo usuario}
-Ante el registro de un nuevo usuario, este debe proporcionar los siguientes datos:
-RD1
+Ante el registro de un nuevo usuario, este debe proporcionar los siguientes datos: RD \ref{rdd:registro-usuario}
+%RD1
 El sistema en respuesta almacenará los siguientes datos:
-RD2
+RD \ref{rdd:inicio-sesion}
+
 \rfd{Inicio de sesión}
 Para iniciar sesión el usuario deberá proporcionar los siguientes datos:
 RD3
 El sistema en respuesta le permitirá acceder si los datos introducidos son correctos.
+
 \rfd{Modificar un dato}
 Para cambiar un dato será necesario haber accedido al sistema y porporcionar los datos
 RD4
 El sistema almacenará los datos
 RD5
+
 \rfd{Dar baja}
 Para dar de baja una cuenta en el sistema será necesario hacer accedido a él.
+
+\refstepcounter{RF}
+
+% Social
+
+\refstepcounter{RF}
+
+% Búsqueda
 
 
 \section{Restricciones semánticas}
 
-\rsd{restricciones}
+\refstepcounter{RS}
+
+\rsd{Restricciones}
 \begin{itemize}
 \item El campo alias se compondrá de una serie alfanumérica de hasta 12 caracteres.
 \item La contraseña se compondrá de una serie alfanumérica de entre 7 y 20 caracteres.
@@ -202,7 +288,16 @@ Para dar de baja una cuenta en el sistema será necesario hacer accedido a él.
 \item Los datos de registro opcionales no rellenos se almacenaran como cadenas vacias.
 \end{itemize}
 
+\refstepcounter{RS}
+
+% Social
+
+\refstepcounter{RS}
+
+% Búsqueda
+
 \section{Validación cruzada de requisitos}
+
 
 
 \end{document}
