@@ -238,7 +238,36 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 \refstepcounter{RD}
 
-% Social
+% Social - datos entrada
+\rdt{Los datos de un comentario\label{rdt:comentario-ent}}
+\begin{itemize}
+\item Texto (una cadena de hasta 500 caracteres no vacía)
+\end{itemize}
+
+\rdt{Los datos de una valoración\label{rdt:valoracion-ent}}
+\begin{itemize}
+\item Valor (un número entero entre 0 y 10)
+\end{itemize}
+
+\rdt{Los datos de las canciones escuchadas\label{rdt:escuchadas-ent}}
+\begin{itemize}
+\item Canción escuchada (\ref{rdu:cancion-man})
+\end{itemize}
+
+\rdt{Los datos de las canciones pendientes\label{rdt:pendientes-ent}}
+\begin{itemize}
+\item Canción pendiente de escuchar (\ref{rdu:cancion-man})
+\end{itemize}
+
+\rdt{Los datos de las canciones favoritas\label{rdt:favoritas-ent}}
+\begin{itemize}
+\item Canción (\ref{rdu:cancion-man})
+\end{itemize}
+
+\rdt{Los datos para seguir a un usuario\label{rdt:seguir-ent}}
+\begin{itemize}
+\item Usuario (\ref{rdd:usuario-man})
+\end{itemize}
 
 \refstepcounter{RD}
 
@@ -304,7 +333,36 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 \refstepcounter{RD}
 
-% Social
+% Social - datos manejados
+\rdt{Los datos de un comentario almacenado\label{rdt:comentario-man}}
+\begin{itemize}
+\item Texto (una cadena de hasta 500 caracteres no vacía)
+\end{itemize}
+
+\rdt{Los datos de una valoración almacenada\label{rdt:valoracion-ent}}
+\begin{itemize}
+\item Valor (un número entero entre 0 y 10)
+\end{itemize}
+
+\rdt{Los datos de las canciones escuchadas\label{rdt:escuchadas-man}}
+\begin{itemize}
+\item Escuchadas (lista formada por canciones, \ref{rdu:cancion-man})
+\end{itemize}
+
+\rdt{Los datos de las canciones pendientes\label{rdt:pendientes-man}}
+\begin{itemize}
+\item Pendientes (lista formada por canciones, \ref{rdu:cancion-man})
+\end{itemize}
+
+\rdt{Los datos de las canciones favoritas\label{rdt:favoritas-man}}
+\begin{itemize}
+\item Favoritas (lista formada por canciones, \ref{rdu:cancion-man})
+\end{itemize}
+
+\rdt{Los datos de un usuario al que sigue almacenado\label{rdt:seguir-man}}
+\begin{itemize}
+\item Seguidos (lista formada por usuarios (\ref{rdd:usuario-man})
+\end{itemize}
 
 \refstepcounter{RD}
 
@@ -320,7 +378,36 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 \refstepcounter{RD}
 
-% Social
+% Social - datos de salida
+\rdt{Los datos de un comentario\label{rdt:comentario-sal}}
+\begin{itemize}
+\item Texto (una cadena de hasta 500 caracteres no vacía)
+\end{itemize}
+
+\rdt{Los datos de una valoración\label{rdt:valoracion-sal}}
+\begin{itemize}
+\item Valor (un número entero entre 0 y 10)
+\end{itemize}
+
+\rdt{Los datos de las canciones escuchadas\label{rdt:escuchadas-sal}}
+\begin{itemize}
+\item Escuchadas (lista formada por canciones, \ref{rdu:cancion-man})
+\end{itemize}
+
+\rdt{Los datos de las canciones pendientes\label{rdt:pendientes-sal}}
+\begin{itemize}
+\item Pendientes (lista formada por canciones, \ref{rdu:cancion-man})
+\end{itemize}
+
+\rdt{Los datos de las canciones favoritas\label{rdt:favoritas-sal}}
+\begin{itemize}
+\item Favoritas (lista formada por canciones, \ref{rdu:cancion-man})
+\end{itemize}
+
+\rdt{Los datos de un usuario al que sigue\label{rdt:seguir-man}}
+\begin{itemize}
+\item Seguidos (lista formada por usuarios (\ref{rdd:usuario-man})
+\end{itemize}
 
 \refstepcounter{RD}
 
@@ -367,7 +454,36 @@ Para dar de baja una cuenta en el sistema será necesario haber accedido a él.
 
 \refstepcounter{RF}
 
-% Social
+% Social - requisitos funcionales
+\rft{Añadir comentario\label{rft:comentar}}
+Esta función registra un comentario dentro del sistema (\ref{rdt:comentario-man}), a partir de los datos de comentario proporcionados por el usuario (\ref{rdt:comentario-ent}).
+
+\rft{Valorar\label{rft:valorar}}
+Esta función registra una valoración dentro del sistema (\ref{rdt:valoracion-man}), a partir de los datos de valoración proporcionados por el usuario (\ref{rdt:valoracion-ent}).
+
+\rft{Marcar como escuchada\label{rft:escuchada}}
+Esta función registra una canción escuchada dentro del sistema (\ref{rdt:escuchadas-man}), a partir de los datos de canción escuchada proporcionada por el usuario (\ref{rdt:escuchadas-ent}).
+
+\rft{Marcar como pendiente\label{rft:pendiente}}
+Esta función registra una canción pendiente dentro del sistema (\ref{rdt:pendientes-man}), a partir de los datos de canción pendiente proporcionada por el usuario (\ref{rdt:pendientes-ent}).
+
+\rft{Añadir a favoritos\label{rft:favorita}}
+Esta función registra una canción favorita dentro del sistema (\ref{rdt:favoritas-man}), a partir de los datos de canción pendiente proporcionada por el usuario (\ref{rdt:favoritas-ent}).
+
+\rft{Ver comentarios\label{rft:ver-comentarios}}
+Esta función proporciona los comentarios de una canción (\ref{rdt:comentario-sal}), a partir de ...
+
+\rft{Ver valoración\label{rft:ver-valoración}}
+Esta función devuelve la valoración que un usuario ha dado a una canción (\ref{rdt:valoracion-sal}).
+
+\rft{Ver favoritos\label{rft:ver-favoritos}}
+Esta función proporciona las canciones marcadas como favoritas de un usuario (\ref{rdt:favoritos-sal}).
+
+\rft{Seguir\label{rft:seguir}}
+Esta función registra que un usuario sigue a otro (\ref{rdt:seguir-man}), a partir de los datos proporcionados por el primero (\ref{rdt:seguir-ent}).
+
+\rft{Ver seguidos\label{rft:seguidos}}
+Esta función muestra los usuarios que un usuario sigue (\ref{rdt:seguir-sal}).
 
 \refstepcounter{RF}
 
@@ -420,7 +536,12 @@ Para realizar una sugerencia se debe haber accedido al sistema y haber escuchado
 
 \refstepcounter{RS}
 
-% Social
+% Social - restricciones semánticas
+\rst{Es necesario haber escuchado una canción para añadir un comentario (\ref{rdt:escuchadas-man}, \ref{rft:comentar})\label{rst:comentar}}.
+
+\rst{Es necesario haber escuchado una canción para añadirla a favoritos (\ref{rdt:favoritas-man}, \ref{rft:favorita})\label{rst:favorita}}.
+
+\rst{Es necesario haber escuchado una canción para añadir una valoración (\ref{rdt:valoracion-man}, \ref{rft:valorar})\label{rst:valorar}}.
 
 \refstepcounter{RS}
 
