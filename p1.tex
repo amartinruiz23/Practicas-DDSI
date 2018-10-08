@@ -13,27 +13,27 @@
 
 %% Fuentes personalizadas para utilizar con XeTeX
 \usepackage{unicode-math}
-\setmainfont[ 
-  Path = ./fonts/, 
+\setmainfont[
+  Path = ./fonts/,
   UprightFont = *-Regular,
   ItalicFont = *-Italic,
   BoldFont = *-Bold,
   BoldItalicFont = *-BoldItalic,
 ]{FiraSans}
-\setsansfont[ 
-  Path = ./fonts/, 
+\setsansfont[
+  Path = ./fonts/,
   UprightFont = *-Regular,
   ItalicFont = *-Italic,
   BoldFont = *-Bold,
   BoldItalicFont = *-BoldItalic,
 ]{FiraSans}
 \setmathfont[
-  Path = ./fonts/, 
+  Path = ./fonts/,
 ]{FiraMath-Regular}
 \setmathfont[
   range={it/{latin, Latin}},
   math-style=TeX,
-  Path = ./fonts/, 
+  Path = ./fonts/,
 ]{FiraSans-Italic}
 
 \usepackage[activate={true,nocompatibility},final,tracking=true,factor=1100,stretch=10,shrink=10]{microtype}
@@ -51,27 +51,27 @@
 \newcommand{\obj}[1]{\addtocounter{ObjCounter}{1}\textbf{\rmfamily OBJ-\theObjCounter}\quad#1\\}
 
 % Contadores requisitos funcionales fs
-\newcounter{RF} 
+\newcounter{RF}
 \setcounter{RF}{1}
-\newcounter{RFu}[RF] 
+\newcounter{RFu}[RF]
 \setcounter{RFu}{0}
 \renewcommand{\theRFu}{\theRF.\arabic{RFu}}
 \newcommand{\rfu}[1]{\noindent%
   \refstepcounter{RFu}\textbf{RF \theRFu}\quad #1\\%
 }
-\newcounter{RFd}[RF] 
+\newcounter{RFd}[RF]
 \setcounter{RFd}{0}
 \renewcommand{\theRFd}{\theRF.\arabic{RFd}}
 \newcommand{\rfd}[1]{\noindent%
   \refstepcounter{RFd}\textbf{RF \theRFd}\quad #1\\%
 }
-\newcounter{RFt}[RF] 
+\newcounter{RFt}[RF]
 \setcounter{RFt}{0}
 \renewcommand{\theRFt}{\theRF.\arabic{RFt}}
 \newcommand{\rft}[1]{\noindent%
   \refstepcounter{RFt}\textbf{RF \theRFt}\quad #1\\%
 }
-\newcounter{RFc}[RF] 
+\newcounter{RFc}[RF]
 \setcounter{RFc}{0}
 \renewcommand{\theRFc}{\theRF.\arabic{RFc}}
 \newcommand{\rfc}[1]{\noindent%
@@ -80,7 +80,7 @@
 
 
 % Contadores requisitos de datos
-\newcounter{RD} 
+\newcounter{RD}
 \setcounter{RD}{1}
 \newcounter{RDu}
 \setcounter{RDu}{0}
@@ -108,27 +108,27 @@
 }
 
 % Contadores restricciones semánticas
-\newcounter{RS} 
+\newcounter{RS}
 \setcounter{RS}{1}
-\newcounter{RSu}[RS] 
+\newcounter{RSu}[RS]
 \setcounter{RSu}{0}
 \renewcommand{\theRSu}{\theRS.\arabic{RSu}}
 \newcommand{\rsu}[1]{\noindent%
   \refstepcounter{RSu}\textbf{RS \theRSu}\quad #1\\%
 }
-\newcounter{RSd}[RS] 
+\newcounter{RSd}[RS]
 \setcounter{RSd}{0}
 \renewcommand{\theRSd}{\theRS.\arabic{RSd}}
 \newcommand{\rsd}[1]{\noindent%
   \refstepcounter{RSd}\textbf{RS \theRSd}\quad #1\\%
 }
-\newcounter{RSt}[RS] 
+\newcounter{RSt}[RS]
 \setcounter{RSt}{0}
 \renewcommand{\theRSt}{\theRS.\arabic{RSt}}
 \newcommand{\rst}[1]{\noindent%
   \refstepcounter{RSt}\textbf{RS \theRSt}\quad #1\\%
 }
-\newcounter{RSc}[RS] 
+\newcounter{RSc}[RS]
 \setcounter{RSc}{0}
 \renewcommand{\theRSc}{\theRS.\arabic{RSc}}
 \newcommand{\rsc}[1]{\noindent%
@@ -152,7 +152,7 @@
 El sistema es una red social para gestionar y compartir opiniones sobre música. Incluye un registro de la música que el usuario ha escuchado así como un sistema de sugerencias generadas a partir de sus escuchas y las de las personas a las que sigue.
 
 %%Subsistema de música
-Se pueden consultar y añadir tanto canciones como autores y géneros. 
+Se pueden consultar y añadir tanto canciones como autores y géneros.
 
 Para incorporar una canción es necesario especificar título (en una serie de hasta 50 caracteres), autor o autores de los preexistentes y género de entre los preexistentes. Adicionalmente se podrán completar estos datos con la fecha de lanzamiento (8 números en formato de fecha dd/mm/aaaa, álbum al que pertenece (serie de hasta 20 caracteres) o portada (imagen PNG de dimensiones 512 $\times$ 512).
 
@@ -164,22 +164,22 @@ Cualquiera de estos datos pueden ser modificados o eliminados por un usuario con
 
 %%Subsistema de usuarios
 
-Para añadir un nuevo usuario al sistema es imprescindible indicar nombre de usuario (una serie de hasta 12 caracteres) y una contraseña (una serie de entre 7 y 128 caracteres). Además se puede indicar un correo electrónico (con formato standard), una biografía (como una serie de hasta 500 caracteres) y una fotografía (imagen PNG). 
+Para añadir un nuevo usuario al sistema es imprescindible indicar nombre de usuario (una serie de hasta 12 caracteres) y una contraseña (una serie de entre 7 y 128 caracteres). Además se puede indicar un correo electrónico (con formato standard), una biografía (como una serie de hasta 500 caracteres) y una fotografía (imagen PNG).
 
 Existen tres tipos de usuario según sus permisos. Los administradores pueden añadir, editar y eliminar cualquier elemento de la base de datos. Los moderadores se encargan de añadir, modificiar y borrar canciones, autores y géneros. Su función es mantener el sistema actualizado y correcto. Los usuarios por defecto solo pueden modificar su propio perfil. Al crear un nuevo usuario, este será por defecto. Un administrador puede convertir a un usuario por defecto en moderador o administrador.
 
-Cada usuario tiene asociado un perfil en el que se mostrarán las canciones que el usuario ha marcado como escuchadas así como sus valoraciones, comentarios y canciones favoritas. 
+Cada usuario tiene asociado un perfil en el que se mostrarán las canciones que el usuario ha marcado como escuchadas así como sus valoraciones, comentarios y canciones favoritas.
 
 %%Subsistema social
 
-Cualquier usuario puede marcar una canción como escuchada, como pendiente o como favorita, añadir una valoración (un valor entero entre 0 y 10) y un comentario (una serie de hasta 500 caracteres). 
+Cualquier usuario puede marcar una canción como escuchada, como pendiente o como favorita, añadir una valoración (un valor entero entre 0 y 10) y un comentario (una serie de hasta 500 caracteres). Para marcar como favorita, añadir una valoración o un comentario, primero habrá que haber marcado como escuchada esa canción.
 
-Un usuario puede seguir a otro usuario, teniendo así una notificación de cuándo el usuario al que sigue realiza alguna actividad. Las sugerencias de búsqueda se verán también influidas por los usuarios a los que se sigue. 
+Un usuario puede seguir a otro usuario, teniendo así una notificación de cuándo el usuario al que sigue realiza alguna actividad. Las sugerencias de búsqueda se verán también influidas por los usuarios a los que se sigue.
 
 
 %%Subsistema de búsqueda
 
-Se pueden buscar canciones en el sistema por su título, autor, género, álbum, o año. También pueden consultarse autores y géneros, de los cuales se podrá obtener la información que exista en el sistema y una lista de canciones relacionadas. 
+Se pueden buscar canciones en el sistema por su título, autor, género, álbum, o año. También pueden consultarse autores y géneros, de los cuales se podrá obtener la información que exista en el sistema y una lista de canciones relacionadas.
 
 Existe un sistema de sugerencias consistente en búsquedas programadas automáticamente en función de las canciones que un usuario y sus seguidos hayan añadido a favoritos y valorado, teniendo en cuenta la puntuación dada.
 
@@ -194,7 +194,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Fecha
   \item Autor
   \item Género
-  \item Álbum 
+  \item Álbum
   \item Portada (opcional)
 \end{itemize}
 
@@ -244,6 +244,11 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 % Búsqueda
 
+\rdc{Datos utilizados en una búsqueda}
+\begin{itemize}
+\item Texto de la búsqueda
+\end{itemize}
+
 \subsection{Datos manejados}
 \setcounter{RD}{1}
 
@@ -254,8 +259,8 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Fecha
   \item Autor
   \item Género
-  \item Álbum 
-  \item Portada 
+  \item Álbum
+  \item Portada
 \end{itemize}
 
 \rdu{Datos almacenados al añadir un nuevo género}
@@ -320,6 +325,12 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \refstepcounter{RD}
 
 % Búsqueda
+\rdc{Datos obtenidos de una búsqueda}
+\begin{itemize}
+\item Autores relacionados
+\item Canciones relacionadas
+\item Géneros relacionados
+\end{itemize}
 
 \section{Requisitos funcionales}
 
@@ -346,13 +357,13 @@ RD3
 El sistema en respuesta le permitirá acceder si los datos introducidos son correctos.
 
 \rfd{Modificar un dato}
-Para cambiar un dato será necesario haber accedido al sistema y porporcionar los datos
+Para cambiar un dato será necesario haber accedido al sistema y proporcionar los datos
 RD4
 El sistema almacenará los datos
 RD5
 
 \rfd{Dar baja}
-Para dar de baja una cuenta en el sistema será necesario hacer accedido a él.
+Para dar de baja una cuenta en el sistema será necesario haber accedido a él.
 
 \refstepcounter{RF}
 
@@ -362,6 +373,11 @@ Para dar de baja una cuenta en el sistema será necesario hacer accedido a él.
 
 % Búsqueda
 
+\rfc{Realizar una búsqueda}
+Para realizar una búsqueda se debe haber accedido al sistema y proporcionar los datos de RD 4.1
+
+\rfc{Realizar una sugerencia}
+Para realizar una sugerencia se debe haber accedido al sistema y haber escuchado alguna canción o haber seguido a algún usuario que haya escuchado alguna canción.
 
 \section{Restricciones semánticas}
 
@@ -377,7 +393,7 @@ Para dar de baja una cuenta en el sistema será necesario hacer accedido a él.
 \rsu{Restricciones al añadir un autor}
 \begin{itemize}
   \item El nombre del autor tendrá hasta 30 caracteres.
-  \item El lugar de procedencia, ciudad y país, se deberá seleccionar de dos listas ya predefinidas. 
+  \item El lugar de procedencia, ciudad y país, se deberá seleccionar de dos listas ya predefinidas.
   \item El intervalo de actividad constará de dos fechas, ambas en el formato dd/mm/aaaa, salvo en el caso de que el autor siga en activo, pudiéndose sustituir la segunda por ``Actualidad''.
   \item La fotografía deberá ser una imagen PNG.
   \item La biografía podrá tener 2000 caracteres como máximo.
@@ -409,6 +425,10 @@ Para dar de baja una cuenta en el sistema será necesario hacer accedido a él.
 \refstepcounter{RS}
 
 % Búsqueda
+\rsc{Restricciones al realizar una búsqueda}
+\begin{itemize}
+\item El texto de búsqueda se compondrá de una serie alfanumérica de entre 1 y 100 caracteres.
+\end{itemize}
 
 \section{Validación cruzada de requisitos}
 
