@@ -283,6 +283,37 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Alias del usuario que seguido (Una serie de hasta 12 caracteres del usuario seguido)
 \end{itemize}
 
+\rdt{Datos para ver información de una canción \label{rdt:id-cancion}}
+\begin{itemize}
+\item Identificador de una canción (Cadena de 16 caracteres numéricos)
+\end{itemize}
+
+\rdt{Datos para ver valoración \label{rdt:ver-val-ent}}
+\begin{itemize}
+\item Alias de usuario (una cadena de hasta 12 caracteres)  
+\item Identificador de una canción (Cadena de 16 caracteres numéricos)
+\end{itemize}
+
+\rdt{Datos para ver favoritos \label{rdt:ver-fav-ent}}
+\begin{itemize}
+\item Alias de usuario (una cadena de hasta 12 caracteres)  
+\end{itemize}
+
+\rdt{Datos para ver pendientes \label{rdt:ver-pen-ent}}
+\begin{itemize}
+\item Alias de usuario (una cadena de hasta 12 caracteres)  
+\end{itemize}
+
+\rdt{Datos para ver escuchadas \label{rdt:ver-esc-ent}}
+\begin{itemize}
+\item Alias de usuario (una cadena de hasta 12 caracteres)  
+\end{itemize}
+
+\rdt{Datos para ver seguidos \label{rdt:ver-seguidos-ent}}
+\begin{itemize}
+\item Alias de usuario (una cadena de hasta 12 caracteres)  
+\end{itemize}
+
 \refstepcounter{RD}
 
 % Búsqueda
@@ -291,6 +322,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \begin{itemize}
 \item Texto de la búsqueda (una cadena de entre 1 y 100 caracteres)
 \end{itemize}
+
 
 \subsection{Datos manejados}
 \setcounter{RD}{1}
@@ -407,6 +439,13 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Identificador de un autor (Cadena numérica de 16 caracteres)
   \item Nombre de género (Cadena de hasta 20 caracteres)
 \end{itemize}
+
+\rdc{Los datos manejados en una sugerencia\label{rdc:sugerencia-man}}
+\begin{itemize}
+  \item Identificador de una canción (Cadena de 16 caracteres numéricos)
+  \item Identificador de un autor (Cadena numérica de 16 caracteres)
+  \item Nombre de género (Cadena de hasta 20 caracteres)
+\end{itemize}
 \subsection{Datos de salida}
 \setcounter{RD}{1}
 
@@ -468,6 +507,13 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Géneros relacionados (Lista de nombres de géneros)
 \end{itemize}
 
+\rdc{Datos obtenidos de una sugerencia\label{rdc:sugerencia-sal}}
+\begin{itemize}
+\item Autores relacionados (Lista de identificadores de autores)
+\item Canciones relacionadas (Lista de identificadores de canciones)
+\item Géneros relacionados (Lista de nombres de géneros)
+\end{itemize}
+
 \section{Requisitos funcionales}
 
 \rfu{Añadir una canción\label{rfu:añadir-cancion}}
@@ -512,29 +558,34 @@ Esta función registra una canción pendiente dentro del sistema (RD \ref{rdt:pe
 Esta función registra una canción favorita dentro del sistema (RD \ref{rdt:favoritas-man}), a partir de los datos de canción pendiente proporcionada por el usuario (RD \ref{rdt:favoritas-ent}).
 
 \rft{Ver comentarios\label{rft:ver-comentarios}}
-Esta función proporciona los comentarios de una canción (RD \ref{RD rdt:comentario-sal}), a partir de un identificador de canción.
+Esta función proporciona los comentarios de una canción (RD \ref{rdt:comentario-sal}), a partir de un identificador de canción (RD \ref{rdt:id-cancion}).
 
 \rft{Ver valoración\label{rft:ver-valoración}}
-Esta función devuelve la valoración que un usuario ha dado a una canción (\ref{rdt:valoracion-sal}).
+Esta función devuelve la valoración que un usuario ha dado a una canción (\ref{rdt:valoracion-sal}), a partir del usuario y la canción (RD \ref{rdt:ver-val-ent}).
 
 \rft{Ver favoritos\label{rft:ver-favoritos}}
-Esta función proporciona las canciones marcadas como favoritas de un usuario (\ref{rdt:favoritos-sal}).
+Esta función proporciona las canciones marcadas como favoritas de un usuario (\ref{rdt:favoritos-sal}), a partir del usuario (RD \ref{rdt:ver-fav-ent}).
+
+\rft{Ver perdientes\label{rft:ver-pendientes}}
+Esta función proporciona las canciones marcadas como pendientes de un usuario (RD \ref{rdt:pendientes-sal}), a partir del usuario (RD \ref{rdt:ver-pen-ent}).
+
+\rft{Ver escuchadas\label{rft:ver-escuchadas}}
+Esta función proporciona las canciones marcadas como pendientes de un usuario (RD \ref{rdt:escuchadas-sal}), a partir del usuario (RD \ref{rdt:ver-esc-ent}).
 
 \rft{Seguir\label{rft:seguir}}
-Esta función registra que un usuario sigue a otro (\ref{rdt:seguir-man}), a partir de los datos proporcionados por el primero (\ref{rdt:seguir-ent}).
+Esta función registra que un usuario sigue a otro (RD \ref{rdt:seguir-man}), a partir de los datos proporcionados por el primero (RD\ref{rdt:seguir-ent}).
 
 \rft{Ver seguidos\label{rft:seguidos}}
-Esta función muestra los usuarios que un usuario sigue (\ref{rdt:seguir-sal}).
-
+Esta función muestra los usuarios que un usuario sigue (RD \ref{rdt:seguir-sal}), a partir del nombre de usuario (RD \ref{rdt:ver-seguidos-ent}).
 \refstepcounter{RF}
 
 % Búsqueda
 
-\rfc{Realizar una búsqueda}
-Para realizar una búsqueda se debe haber accedido al sistema y proporcionar los datos de RD 4.1
+\rfc{Realizar una búsqueda \label{rfc:buscar}}
+Esta función devuelve canciones, géneros y autores relacionados (RD \ref{rdc:busqueda-sal}), a partir de un texto introducido por el usuario (RD \ref{rdc:busqueda-ent}).
 
-\rfc{Realizar una sugerencia}
-Para realizar una sugerencia se debe haber accedido al sistema y haber escuchado alguna canción o haber seguido a algún usuario que haya escuchado alguna canción.
+\rfc{Realizar una sugerencia \label{rfc:sugerir}}
+Esta función realiza sugerencias como búsquedas automáticas a partir de canciones, artistas y géneros (RD \ref{rdc:sugerencia-man}) y devuelve canciones, artistas y géneros relacionados (RD \ref{rdc:sugerencia-sal}).
 
 \section{Restricciones semánticas}
 
