@@ -154,17 +154,17 @@ El sistema es una red social para gestionar y compartir opiniones sobre música.
 %%Subsistema de música
 Se pueden consultar y añadir tanto canciones como autores y géneros.
 
-Para incorporar una canción es necesario especificar título (en una serie de hasta 50 caracteres), autor o autores de los preexistentes y género de entre los preexistentes. Adicionalmente se podrán completar estos datos con la fecha de lanzamiento (8 números en formato de fecha dd/mm/aaaa, álbum al que pertenece (serie de hasta 20 caracteres) o portada (imagen PNG de dimensiones 512 $\times$ 512).
+Para incorporar una canción es necesario especificar título (en una serie de hasta 50 caracteres), autor o autores de los preexistentes y género de entre los preexistentes. Adicionalmente se podrán completar estos datos con la fecha de lanzamiento (8 números en formato de fecha dd/mm/aaaa), álbum al que pertenece (serie de hasta 20 caracteres) o portada (imagen PNG de dimensiones 512 $\times$ 512). El sistema generará un identificador único para cada canción, como un número de 16 dígitos.
 
-Para agregar un autor es necesario especificar su nombre (una lista en la cual cada elemento es una serie de hasta 30 caracteres), y adicionalmente se puede indicar su procedencia (ciudad y país, como una lista de 20 caracteres cada uno), intervalo de actividad (dos fechas en el formato previamente especificado, siendo la segunda sustituible por ``Actualidad''), fotografía (imagen PNG) y una biografía (en una serie de hasta 2000 caracteres) y géneros relacionados de entre los preexistentes.
+Para agregar un autor es necesario especificar su nombre (una lista en la cual cada elemento es una serie de hasta 30 caracteres), y adicionalmente se puede indicar su procedencia (ciudad y país, como una lista de 20 caracteres cada uno), intervalo de actividad (dos fechas en el formato previamente especificado, siendo la segunda sustituible por ``Actualidad''), fotografía (imagen PNG) y una biografía (en una serie de hasta 2000 caracteres) y géneros relacionados de entre los preexistentes. El sistema generará un identificador único para cada autor, como un número de 16 dígitos.
 
 Para agregar un género musical solo es necesario instroducir un nombre (como una cadena de hasta 20 caracteres). Adicionalmente se puede añadir una breve descripción (como una cadena de hasta 500 caracteres).
 
-Cualquiera de estos datos pueden ser modificados o eliminados por un usuario con los permisos adecuados.
+Cualquiera de estos datos pueden ser modificados o eliminados por un usuario con los permisos adecuados, excepto los identificadores de las canciones y los autores que solo podrán ser eliminados al eliminar la canción o autor correspondiente.
 
 %%Subsistema de usuarios
 
-Para añadir un nuevo usuario al sistema es imprescindible indicar nombre de usuario (una serie de hasta 12 caracteres) y una contraseña (una serie de entre 7 y 128 caracteres). Además se puede indicar un correo electrónico (con formato standard), una biografía (como una serie de hasta 500 caracteres) y una fotografía (imagen PNG).
+Para añadir un nuevo usuario al sistema es imprescindible indicar nombre de usuario (una serie de hasta 12 caracteres, que funcionrá como identificador, luego debe ser único) y una contraseña (una serie de entre 7 y 128 caracteres). Además se puede indicar un correo electrónico (con formato stándar), una biografía (como una serie de hasta 500 caracteres) y una fotografía (imagen PNG).
 
 Existen tres tipos de usuario según sus permisos. Los administradores pueden añadir, editar y eliminar cualquier elemento de la base de datos. Los moderadores se encargan de añadir, modificiar y borrar canciones, autores y géneros. Su función es mantener el sistema actualizado y correcto. Los usuarios por defecto solo pueden modificar su propio perfil. Al crear un nuevo usuario, este será por defecto. Un administrador puede convertir a un usuario por defecto en moderador o administrador.
 
@@ -190,29 +190,31 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 \rdu{Datos utilizados al añadir una nueva canción \label{rdu:datos-nueva-cancion}}
 \begin{itemize}
-  \item Título
-  \item Fecha
-  \item Autor
-  \item Género
-  \item Álbum
-  \item Portada (opcional)
+  \item Título (Una cadena no vacía de hasta 50 caracteres)
+  \item Fecha (8 números en formado dd/mm/aaaa)
+  \item Autor (Identificador del autor)
+  \item Género (Nombre del género, cadena de hasta 20 caracteres)
+  \item Álbum (Serie de hasta 20 caracteres)
+  \item Portada (opcional) (Imagen .png de dimensiones 512x512)
+  \item Identificador (Cadena de 16 caracteres numéricos)
 \end{itemize}
 
 \rdu{Datos utilizados al añadir un nuevo género \label{rdu:datos-nuevo-genero}}
 \begin{itemize}
-  \item Nombre
-  \item Descripción
+  \item Nombre (Cadena de hasta 20 caracteres)
+  \item Descripción (Cadena de hasta 500 caracteres)
 \end{itemize}
 
 
 \rdu{Datos utilizados al añadir un nuevo autor\label{rdu:datos-nuevo-autor}}
 
 \begin{itemize}
-  \item Nombre
-  \item Procedencia (opcional)
-  \item Intervalo de actividad (inicio, fin) (opcional)
-  \item Foto (opcional)
-  \item Biografía (opcional)
+  \item Nombre (Cadena de hasta 30 caracteres)
+  \item Procedencia (opcional) (Dos listas de 20 caracteres alfanuméricos)
+  \item Intervalo de actividad (opcional) (Dos fechas en el formáto dd/mm/aaaa, siendo la segunda sustituible por `actualidad') (opcional) 
+  \item Foto (opcional) (Imagen en formato .png)
+  \item Biografía (opcional) (Serie de hasta 2000 caracteres alfanuméricos)
+    \item Generos relacionados (opcional) (Lista de nombres de géneros)
 \end{itemize}
 
 \refstepcounter{RD}
@@ -221,22 +223,22 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 \rdd{Datos utilizados en el registro de un nuevo usuario\label{rdd:registro-usuario}}
 \begin{itemize}
-\item Alias
-\item Contraseña
-\item Correo electronico (opcional)
-\item Fecha de nacimiento (opcional)
-\item Foto (opcional)
-\item Biografía (opcional)
+\item Alias (Una serie de hasta 12 caracteres)
+\item Contraseña (Una serie de entre 7 y 128 caracteres).
+\item Correo electronico (opcional) (Serie de caracteres en formato xxxxx@yyyy.zzz)
+\item Fecha de nacimiento (opcional) (Serie de caracteres en formato dd/mm/aaaa)
+\item Foto (opcional) (Imagen en formato .png)
+\item Biografía (opcional) (Serie de hasta 500 caracteres)
 \end{itemize}
 \rdd{Datos de inicio de sesión \label{rdd:inicio-sesion}}
 \begin{itemize}
-\item Alias
-\item Contraseña
+\item Alias (Una serie de hasta 12 caracteres)
+\item Contraseña (Una serie de entre 7 y 128 caracteres)
 \end{itemize}
 \rdd{Datos introducidos para la modificación de un dato personal\label{rdd:modificar-dato}}
 \begin{itemize}
-\item Dato antiguo
-\item Dato nuevo
+\item Dato antiguo (En el formato correspondiente al dato)
+\item Dato nuevo (En el mismo formato que el dato eliminado)
 \end{itemize}
 
 \refstepcounter{RD}
@@ -244,12 +246,14 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 % Social - datos entrada
 \rdt{Los datos de un comentario\label{rdt:comentario-ent}}
 \begin{itemize}
-\item Texto (una cadena de hasta 500 caracteres no vacía)
+\item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
+\item Identificador de cancion (Cadena de 16 caracteres númericos)
+\item Texto (Una cadena de hasta 500 caracteres no vacía)
 \end{itemize}
 
 \rdt{Los datos de una valoración\label{rdt:valoracion-ent}}
 \begin{itemize}
-\item Valor (un número entero entre 0 y 10)
+\item Valor (Un número entero entre 0 y 10)
 \end{itemize}
 
 \rdt{Los datos de las canciones escuchadas\label{rdt:escuchadas-ent}}
