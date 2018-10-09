@@ -139,6 +139,7 @@
 
 \usepackage{array}
 \usepackage{adjustbox}
+\usepackage{tabularx}
 
 \title{Práctica 1. Descripción del sistema y especificación de requisitos \\\large Diseño y Desarrollo de Sistemas de Información}
 \author{Sofía Almedia Bruno \and José María Martín Luque \and Antonio Martín Ruiz \and Luis Antonio Ortega Andrés}
@@ -616,24 +617,33 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 
 \refstepcounter{RS}
 
-\rsd{Restricciones}
+\rsd{Restricciones para registrar un usuario}
 \begin{itemize}
 \item El campo alias se compondrá de una serie alfanumérica de hasta 12 caracteres.
 \item La contraseña se compondrá de una serie alfanumérica de entre 7 y 20 caracteres.
 \item La biografía se compondrá de una serie alfanumérica de hasta 500 caracteres.
-\item La fotografia de perfil sera una imagen en formato png.
-\item La fecha de nacimiento tendra el formato DD/MM/YYYY
-\item Los datos de registro opcionales no rellenos se almacenaran como cadenas vacias.
+\item La fotografáa de perfil sera una imagen en formato png.
+\item La fecha de nacimiento tendrá el formato DD/MM/YYYY
+\item Los datos de registro opcionales no rellenos se almacenaran como cadenas vacáas.
 \end{itemize}
 
 \refstepcounter{RS}
 
 % Social - restricciones semánticas
-\rst{Es necesario haber escuchado una canción para añadir un comentario (\ref{rdt:escuchadas-man}, \ref{rft:comentar})\label{rst:comentar}}.
+\rst{Restricciones para añadir un comentario}
+\begin{itemize}
+\item Es necesario haber escuchado una canción para añadir un comentario. (\ref{rdt:escuchadas-man}, \ref{rft:comentar})\label{rst:comentar}
+\end{itemize}
 
-\rst{Es necesario haber escuchado una canción para añadirla a favoritos (\ref{rdt:favoritas-man}, \ref{rft:favorita})\label{rst:favorita}}.
+\rst{Restricciones para añadir una canción a favoritos}
+\begin{itemize}
+\item Es necesario haber escuchado una canción para añadirla a favoritos. (\ref{rdt:favoritas-man}, \ref{rft:favorita})\label{rst:favorita}
+\end{itemize}
 
-\rst{Es necesario haber escuchado una canción para añadir una valoración (\ref{rdt:valoracion-man}, \ref{rft:valorar})\label{rst:valorar}}.
+\rst{Restricciones para añadir una valoración}
+\begin{itemize}
+\item Es necesario haber escuchado una canción para añadir una valoración (\ref{rdt:valoracion-man}, \ref{rft:valorar})\label{rst:valorar}
+\end{itemize}
 
 \refstepcounter{RS}
 
@@ -641,6 +651,11 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 \rsc{Restricciones al realizar una búsqueda}
 \begin{itemize}
 \item El texto de búsqueda se compondrá de una serie alfanumérica de entre 1 y 100 caracteres.
+\end{itemize}
+
+\rsc{Restricciones para recibir una sugerencia}
+\begin{itemize}
+\item Es necesario haber escuchado alguna canción o haber seguido a algún usuario que haya escuchado alguna canción.
 \end{itemize}
 
 \section{Validación cruzada de requisitos}
