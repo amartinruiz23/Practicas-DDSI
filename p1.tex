@@ -725,6 +725,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 
 \section{Validación cruzada de requisitos}
 
+\subsection{Validación cruzada de requisitos de datos}
 \keepXColumns 
 \begin{tabularx}{\linewidth}{l|XXX}
   RD & Entrada & Manejo & Salida \\
@@ -779,6 +780,33 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RD \ref{rdc:sugerencia-sal} & & & RF \ref{rfc:sugerir} \\
 
   % Faltan los requisitos de salida de Búsqueda (Antonio), porque no existen
+\end{tabularx}
+
+\subsection{Validación cruzada de requisitos funcionales}
+\begin{tabularx}{\linewidth}{l|XXX}
+  RF & Entrada & Manejo & Salida \\
+  RF \ref{rfu:añadir-cancion} & RD \ref{rdu:datos-nueva-cancion} & RD \ref{rdu:datos-almacenados-nueva-cancion} & \\
+  RF \ref{rfu:añadir-autor} & RD \ref{rdu:datos-nuevo-autor} & RD \ref{rdu:datos-almacenados-nuevo-autor} & \\
+  RF \ref{rfu:añadir-genero} & RD \ref{rdu:datos-nuevo-genero} & RD \ref{rdu:datos-almacenados-nuevo-genero}  & \\
+  RF \ref{rfd:registro-usuario} & RD \ref{rdd:registro-usuario} & RD \ref{rdd:registro-usuario-almacenados} & \\
+  RF \ref{rfd:inicio-sesion} & RD \ref{rdd:inicio-sesion} & & \\
+  RF \ref{rfd:modificar-dato} &  RD \ref{rdd:modificar-dato} & RD \ref{rdd:modificar-dato-almacenados} & \\
+  RF \ref{rfd:dar-baja} & RD \ref{rdd:inicio-sesion-baja} & RD \ref{rdd:eliminar-usuario} & \\
+  RF \ref{rfd:ver-perfil} & RD \ref{rdd:ver-perfil} & & RD \ref{rdd:ver-perfil-sal} \\
+  RF \ref{rft:comentar} & RD \ref{rdt:comentario-ent} & RD \ref{rdt:comentario-man} & \\
+  RF \ref{rft:valorar} & RD \ref{rdt:valoracion-ent} & RD \ref{rdt:valoracion-man} & \\
+  RF \ref{rft:escuchada} & RD \ref{rdt:escuchadas-ent} & RD \ref{rdt:escuchadas-man} & \\
+  RF \ref{rft:pendiente} & RD \ref{rdt:pendientes-ent} & RD \ref{rdt:pendientes-man} & \\
+  RF \ref{rft:favorita} & RD \ref{rdt:favoritas-ent} & RD \ref{rdt:favoritas-man} & \\
+  RF \ref{rft:ver-comentarios} & RD \ref{rdt:id-cancion} & & \ref{rdt:comentario-sal}\\
+  RF \ref{rft:ver-valoracion} & RD \ref{rdt:ver-val-ent} & & RD \ref{rdt:valoracion-sal} \\
+  RF \ref{rft:ver-favoritos} & RD \ref{rdt:ver-fav-ent} & & RD \ref{rdt:favoritos-sal}\\
+  RF \ref{rft:ver-pendientes} & RD \ref{rdt:ver-pen-ent} & & RD \ref{rdt:pendientes-sal} \\
+  RF \ref{rft:ver-escuchadas} & RD \ref{rdt:ver-esc-ent} & & RD \ref{rdt:escuchadas-sal} \\
+  RF \ref{rft:seguir} & RD \ref{rdt:seguir-ent} & RD \ref{rdt:seguir-man} & \\
+  RF \ref{rft:seguidos} &  & RD \ref{rdt:seguir-man} & RD \ref{rdt:seguir-sal} \\
+  RF \ref{rfc:buscar} & RD \ref{rdc:busqueda-ent} & & RD \ref{rdc:busqueda-sal} \\
+  RF \ref{rfc:sugerir} & & RD \ref{rdc:sugerencia-man} & RD \ref{rdc:sugerencia-sal}\\
 \end{tabularx}
 
 \end{document}
