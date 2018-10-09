@@ -160,13 +160,13 @@ Para incorporar una canción es necesario especificar título (en una serie de h
 
 Para agregar un autor es necesario especificar su nombre (una lista en la cual cada elemento es una serie de hasta 30 caracteres), y adicionalmente se puede indicar su procedencia (ciudad y país, como una lista de 20 caracteres cada uno), intervalo de actividad (dos fechas en el formato previamente especificado, siendo la segunda sustituible por ``Actualidad''), fotografía (imagen PNG) y una biografía (en una serie de hasta 2000 caracteres) y géneros relacionados de entre los preexistentes. El sistema generará un identificador único para cada autor (como un número de 16 dígitos).
 
-Para agregar un género musical solo es necesario instroducir un nombre (como una cadena de hasta 20 caracteres). Adicionalmente se puede añadir una breve descripción (como una cadena de hasta 500 caracteres).
+Para agregar un género musical solo es necesario introducir un nombre (como una cadena de hasta 20 caracteres). Adicionalmente se puede añadir una breve descripción (como una cadena de hasta 500 caracteres).
 
 Cualquiera de estos datos pueden ser modificados o eliminados por un usuario con los permisos adecuados, excepto los identificadores de las canciones y los autores que solo podrán ser eliminados al eliminar la canción o autor correspondiente.
 
 %%Subsistema de usuarios
 
-Para añadir un nuevo usuario al sistema es imprescindible indicar nombre de usuario (una serie de hasta 12 caracteres, que funcionrá como identificador, luego debe ser único) y una contraseña (una serie de entre 7 y 128 caracteres). Además, se puede indicar un correo electrónico (con formato estándar), una biografía (como una serie de hasta 500 caracteres) y una fotografía (imagen PNG).
+Para añadir un nuevo usuario al sistema es imprescindible indicar nombre de usuario (una serie de hasta 12 caracteres, que funcionará como identificador, luego debe ser único) y una contraseña (una serie de entre 7 y 128 caracteres). Además, se puede indicar un correo electrónico (con formato estándar), una biografía (como una serie de hasta 500 caracteres) y una fotografía (imagen PNG).
 
 Existen tres tipos de usuario según sus permisos. Los administradores pueden añadir, editar y eliminar cualquier elemento de la base de datos. Los moderadores se encargan de añadir, modificar y borrar canciones, autores y géneros. Su función es mantener el sistema actualizado y correcto. Los usuarios por defecto solo pueden modificar su propio perfil. Al crear un nuevo usuario, este será por defecto. Un administrador puede convertir a un usuario por defecto en moderador o administrador.
 
@@ -215,7 +215,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Intervalo de actividad (opcional) (Dos fechas en el formato dd/mm/aaaa, siendo la segunda sustituible por ``actualidad'') (opcional)
   \item Foto (opcional) (Imagen en formato PNG)
   \item Biografía (opcional) (Serie de hasta 2000 caracteres alfanuméricos)
-    \item Generos relacionados (opcional) (Lista de nombres de géneros)
+    \item Géneros relacionados (opcional) (Lista de nombres de géneros)
     \item Identificador de un autor (cadena numérica de 16 caracteres)
 \end{itemize}
 
@@ -227,7 +227,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \begin{itemize}
 \item Alias (Una serie de hasta 12 caracteres)
 \item Contraseña (Una serie de entre 7 y 128 caracteres).
-\item Correo electronico (opcional) (Serie de caracteres en formato xxxxx@yyyy.zzz)
+\item Correo electrónico (opcional) (Serie de caracteres en formato xxxxx@yyyy.zzz)
 \item Fecha de nacimiento (opcional) (Serie de caracteres en formato dd/mm/aaaa)
 \item Foto (opcional) (Imagen en formato PNG)
 \item Biografía (opcional) (Serie de hasta 500 caracteres)
@@ -259,33 +259,33 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \rdt{Los datos para introducir un comentario\label{rdt:comentario-ent}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
-\item Identificador de canción (Cadena de 16 caracteres númericos)
+\item Identificador de canción (Cadena de 16 caracteres numéricos)
 \item Texto (Una cadena de hasta 500 caracteres no vacía)
 \end{itemize}
 
 \rdt{Los datos de una valoración\label{rdt:valoracion-ent}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
-\item Identificador de canción (Cadena de 16 caracteres númericos)
+\item Identificador de canción (Cadena de 16 caracteres numéricos)
 \item Valor (Un número entero entre 0 y 10)
 \end{itemize}
 
 \rdt{Los datos de las canciones escuchadas\label{rdt:escuchadas-ent}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
-\item Identificador de canción (Cadena de 16 caracteres númericos)
+\item Identificador de canción (Cadena de 16 caracteres numéricos)
 \end{itemize}
 
 \rdt{Los datos de las canciones pendientes\label{rdt:pendientes-ent}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
-\item Identificador de canción (Cadena de 16 caracteres númericos)
+\item Identificador de canción (Cadena de 16 caracteres numéricos)
 \end{itemize}
 
 \rdt{Los datos de las canciones favoritas\label{rdt:favoritas-ent}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
-\item Identificador de canción (Cadena de 16 caracteres númericos)
+\item Identificador de canción (Cadena de 16 caracteres numéricos)
 \end{itemize}
 
 \rdt{Los datos para seguir a un usuario\label{rdt:seguir-ent}}
@@ -361,10 +361,10 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \begin{itemize}
   \item Nombre (Cadena de hasta 30 caracteres)
   \item Procedencia (opcional) (Dos listas de 20 caracteres alfanuméricos)
-  \item Intervalo de actividad (opcional) (Dos fechas en el formáto dd/mm/aaaa, siendo la segunda sustituible por `actualidad') (opcional)
+  \item Intervalo de actividad (opcional) (Dos fechas en el formato dd/mm/aaaa, siendo la segunda sustituible por `actualidad') (opcional)
   \item Foto (opcional) (Imagen en formato PNG)
   \item Biografía (opcional) (Serie de hasta 2000 caracteres alfanuméricos)
-  \item Generos relacionados (opcional) (Lista de nombres de géneros)
+  \item Géneros relacionados (opcional) (Lista de nombres de géneros)
   \item Identificador de un autor (cadena numérica de 16 caracteres)
 \end{itemize}
 
@@ -376,7 +376,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \begin{itemize}
   \item Alias (Una serie de hasta 12 caracteres)
   \item Contraseña (Una serie de entre 7 y 128 caracteres).
-  \item Correo electronico (opcional) (Serie de caracteres en formato xxxxx@yyyy.zzz)
+  \item Correo electrónico (opcional) (Serie de caracteres en formato xxxxx@yyyy.zzz)
   \item Fecha de nacimiento (opcional) (Serie de caracteres en formato dd/mm/aaaa)
   \item Foto (opcional) (Imagen en formato PNG)
   \item Biografía (opcional) (Serie de hasta 500 caracteres)
@@ -410,7 +410,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \rdt{Los datos de una valoración almacenada\label{rdt:valoracion-man}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
-\item Identificador de canción (Cadena de 16 caracteres númericos)
+\item Identificador de canción (Cadena de 16 caracteres numéricos)
 \item Valor (un número entero entre 0 y 10)
 \end{itemize}
 
@@ -418,21 +418,21 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
 \item Identificador de canción (Cadena de 16 caracteres numéricos)
-\item Escuchadas (lista formada por identificadores de canciones (Cadena de 16 caracteres númericos))
+\item Escuchadas (lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
 \end{itemize}
 
 \rdt{Los datos almacenados de las canciones pendientes\label{rdt:pendientes-man}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
 \item Identificador de canción (Cadena de 16 caracteres numéricos)
-\item Pendientes (lista formada por identificadores de canciones (Cadena de 16 caracteres númericos))
+\item Pendientes (lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
 \end{itemize}
 
 \rdt{Los datos almacenados de las canciones favoritas\label{rdt:favoritas-man}}
 \begin{itemize}
   \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
   \item Identificador de canción (Cadena de 16 caracteres numéricos)
-  \item Favoritas (lista formada por identificadores de canciones (Cadena de 16 caracteres númericos))
+  \item Favoritas (lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
 \end{itemize}
 
 \rdt{Los datos de un usuario al que sigue almacenado\label{rdt:seguir-man}}
@@ -478,36 +478,36 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \rdt{Los datos de un comentario\label{rdt:comentario-sal}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres)
-\item Foto del usurio (Imagen en formato PNG)
+\item Foto del usuario (Imagen en formato PNG)
 \item Texto (Una cadena de hasta 500 caracteres no vacía)
 \end{itemize}
 
 \rdt{Los datos de una valoración\label{rdt:valoracion-sal}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres)
-\item Foto del usurio (Imagen en formato PNG)
+\item Foto del usuario (Imagen en formato PNG)
 \item Valor (un número entero entre 0 y 10)
 \end{itemize}
 
 \rdt{Los datos de las canciones escuchadas\label{rdt:escuchadas-sal}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres)
-\item Foto del usurio (Imagen en formato PNG)
-\item Escuchadas (lista formada por identificadores de canciones (Cadena de 16 caracteres númericos))
+\item Foto del usuario (Imagen en formato PNG)
+\item Escuchadas (lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
 \end{itemize}
 
 \rdt{Los datos de las canciones pendientes\label{rdt:pendientes-sal}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres)
-\item Foto del usurio (Imagen en formato PNG)
-\item Pendientes (lista formada por identificadores de canciones (Cadena de 16 caracteres númericos))
+\item Foto del usuario (Imagen en formato PNG)
+\item Pendientes (lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
 \end{itemize}
 
 \rdt{Los datos de las canciones favoritas\label{rdt:favoritos-sal}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres)
-\item Foto del usurio (Imagen en formato PNG)
-\item Favoritas (lista formada por identificadores de canciones (Cadena de 16 caracteres númericos))
+\item Foto del usuario (Imagen en formato PNG)
+\item Favoritas (lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
 \end{itemize}
 
 \rdt{Los datos de un usuario al que sigue\label{rdt:seguir-sal}}
@@ -638,8 +638,16 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 %(RD \ref{rdu:datos-nuevo-genero}, RF \ref{rfu:añadir-genero})
 \rsu{Restricciones al añadir una canción}
 \begin{itemize}
-\item El autor y género deben estar registrados previamente en el sistema (RD \ref{rdu:datos-nueva-cancion}, RF \ref{rfu:añadir-cancion})
+\item El autor y género deben estar registrados previamente en el sistema. 
 \end{itemize}
+(RD \ref{rdu:datos-nueva-cancion}, RF \ref{rfu:añadir-cancion})
+
+\rsu{Restricciones al añadir un autor}
+\begin{itemize}
+  \item El género del autor ya debe estar registrado previamente en el sistema.
+  \item Las fechas introducidas deberán ser todas anteriores a la actualidad.
+\end{itemize}
+(RD \ref{rdu:datos-nuevo-autor}, RF \ref{rfu:añadir-autor})
 \refstepcounter{RS}
 
 %\rsd{Restricciones para registrar un usuario}
@@ -656,46 +664,50 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 
 \rsd{Restricciones para iniciar sesión}
 \begin{itemize}
-\item El usuario y la contraseña deben coincidir con los almacenados en el sistema. (RD \ref{rdd:inicio-sesion}, RF \ref{rfd:inicio-sesion})
-  \end{itemize}
+\item El usuario y la contraseña deben coincidir con los almacenados en el sistema. 
+\end{itemize}
+(RD \ref{rdd:inicio-sesion}, RF \ref{rfd:inicio-sesion})
 
 \rsd{Restricciones para modificar un dato personal}
 \begin{itemize}
 \item El usuario y la contraseña de los datos de entrada deben coincidir con los del usuario que se desea modificar.
-\item El nuevo dato personal debe cumplir los mismos requisitos que el que se desea modificar.\\
-(RD \ref{rdd:modificar-dato}, RF \ref{rfd:modificar-dato})
-
+\item El nuevo dato personal debe cumplir los mismos requisitos que el que se desea modificar.
 \end{itemize}
+(RD \ref{rdd:modificar-dato}, RF \ref{rfd:modificar-dato})
 
 \rsd{Restricciones para darse de baja}
 \begin{itemize}
-\item El usuario y la contraseña de los datos de entrada deben coincidir con los de el usuario que se desea dar de baja. (RD \ref{rdd:inicio-sesion-baja}, RF \ref{rfd:dar-baja})
+\item El usuario y la contraseña de los datos de entrada deben coincidir con los de el usuario que se desea dar de baja.
 \end{itemize}
+(RD \ref{rdd:inicio-sesion-baja}, RF \ref{rfd:dar-baja})
 
 \rsd{Restricciones para ver un perfil}
 \begin{itemize}
 \item El alias introducido debe coincidir con algún usuario existente.
-\item Los datos de salida deben existir, en caso de no hacerlo no se mostrarán.\\
+\item Los datos de salida deben existir, en caso de no hacerlo no se mostrarán.
+\end{itemize}
 (RD \ref{rdd:ver-perfil}, RD \ref{rdd:ver-perfil-sal}, RF \ref{rfd:ver-perfil})
-  \end{itemize}
 
 \refstepcounter{RS}
 
 % Social - restricciones semánticas
 \rst{Restricciones para añadir un comentario}
 \begin{itemize}
-\item Es necesario haber escuchado una canción para añadir un comentario. (RD \ref{rdt:escuchadas-man}, RF \ref{rft:comentar})\label{rst:comentar}
+\item Es necesario haber escuchado una canción para añadir un comentario.
 \end{itemize}
+(RD \ref{rdt:escuchadas-man}, RF \ref{rft:comentar})\label{rst:comentar}
 
 \rst{Restricciones para añadir una canción a favoritos}
 \begin{itemize}
-\item Es necesario haber escuchado una canción para añadirla a favoritos. (RD \ref{rdt:favoritas-man}, RF \ref{rft:favorita})\label{rst:favorita}
+\item Es necesario haber escuchado una canción para añadirla a favoritos. 
 \end{itemize}
+(RD \ref{rdt:favoritas-man}, RF \ref{rft:favorita})\label{rst:favorita}
 
 \rst{Restricciones para añadir una valoración}
 \begin{itemize}
-\item Es necesario haber escuchado una canción para añadir una valoración (RD \ref{rdt:valoracion-man}, RF\ref{rft:valorar})\label{rst:valorar}
+\item Es necesario haber escuchado una canción para añadir una valoración. 
 \end{itemize}
+(RD \ref{rdt:valoracion-man}, RF\ref{rft:valorar})\label{rst:valorar}
 
 \refstepcounter{RS}
 
@@ -707,8 +719,9 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 %
 \rsc{Restricciones para recibir una sugerencia}
 \begin{itemize}
-\item Es necesario haber escuchado alguna canción o haber seguido a algún usuario que haya escuchado alguna canción (RD \ref{rdt:escuchadas-man}, RF \ref{rfc:sugerir}).
+\item Es necesario haber escuchado alguna canción o haber seguido a algún usuario que haya escuchado alguna canción.
 \end{itemize}
+(RD \ref{rdt:escuchadas-man}, RF \ref{rfc:sugerir})
 
 \section{Validación cruzada de requisitos}
 
