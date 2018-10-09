@@ -488,10 +488,10 @@ Esta función registra un usuario dentro del sistema (RD \ref{rdd:registro-usuar
 Esta función permite a un usuario acceder a las acciones permitidas para dicho usuario, a partir de los datos de entrada (RD \ref{rdd:inicio-sesion}).
 
 \rfd{Modificar un dato\label{rfd:modificar-dato}}
-Esta función registra el cambio de un dato en el sistema (RD \ref{rdd:modificar-dato-almacenados}), a partir de los (RD \ref{rdd:modificar-dato}).
+Esta función registra el cambio de un dato en el sistema (RD \ref{rdd:modificar-dato-almacenados}), a partir de los (RD \ref{rdd:modificar-dato}, el sistema debe verificar que el usuario es el adecuado, utilizando (RD \ref{rdd:inicio-sesion}).
 
 \rfd{Dar de baja\label{rfd:dar-baja}}
-Esta función eliminará una cuenta de usuario del sistema (RD \ref{rdd:\ref{rdd:eliminar-usuario}}).
+Esta función eliminará una cuenta de usuario del sistema (RD \ref{rdd:\ref{rdd:eliminar-usuario}}, para ello son necesarios los datos (RD \ref{rdd:inicio-sesion}).
 
 \refstepcounter{RF}
 
