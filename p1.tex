@@ -199,12 +199,16 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Álbum (Serie de hasta 20 caracteres)
   \item Portada (opcional) (Imagen PNG de dimensiones 512x512)
   \item Identificador (Cadena de 16 caracteres numéricos)
+  \item Alias (Una serie de hasta 12 caracteres)
+  \item Contraseña (Una serie de entre 7 y 128 caracteres)
 \end{itemize}
 
 \rdu{Datos utilizados al añadir un nuevo género \label{rdu:datos-nuevo-genero}}
 \begin{itemize}
   \item Nombre (Cadena de hasta 20 caracteres)
   \item Descripción (Cadena de hasta 500 caracteres)
+  \item Alias (Una serie de hasta 12 caracteres)
+  \item Contraseña (Una serie de entre 7 y 128 caracteres)
 \end{itemize}
 
 \rdu{Datos utilizados al añadir un nuevo autor\label{rdu:datos-nuevo-autor}}
@@ -217,6 +221,8 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Biografía (opcional) (Serie de hasta 2000 caracteres alfanuméricos)
     \item Géneros relacionados (opcional) (Lista de nombres de géneros)
     \item Identificador de un autor (cadena numérica de 16 caracteres)
+    \item Alias (Una serie de hasta 12 caracteres)
+    \item Contraseña (Una serie de entre 7 y 128 caracteres)
 \end{itemize}
 
 \refstepcounter{RD}
@@ -259,6 +265,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \rdt{Los datos para introducir un comentario\label{rdt:comentario-ent}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
+\item Contraseña (Una serie de entre 7 y 128 caracteres)
 \item Identificador de canción (Cadena de 16 caracteres numéricos)
 \item Texto (Una cadena de hasta 500 caracteres no vacía)
 \end{itemize}
@@ -266,25 +273,29 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \rdt{Los datos de una valoración\label{rdt:valoracion-ent}}
 \begin{itemize}
 \item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
+\item Contraseña (Una serie de entre 7 y 128 caracteres)
 \item Identificador de canción (Cadena de 16 caracteres numéricos)
 \item Valor (Un número entero entre 0 y 10)
 \end{itemize}
 
 \rdt{Los datos de las canciones escuchadas\label{rdt:escuchadas-ent}}
 \begin{itemize}
-\item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
+\item Alias de usuario (Una serie de hasta 12 caracteres del usuario que marca como escuchado)
+\item Contraseña (Una serie de entre 7 y 128 caracteres
 \item Identificador de canción (Cadena de 16 caracteres numéricos)
 \end{itemize}
 
 \rdt{Los datos de las canciones pendientes\label{rdt:pendientes-ent}}
 \begin{itemize}
-\item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
+\item Alias de usuario (Una serie de hasta 12 caracteres del usuario que marca como pendiente)
+\item Contraseña (Una serie de entre 7 y 128 caracteres)
 \item Identificador de canción (Cadena de 16 caracteres numéricos)
 \end{itemize}
 
 \rdt{Los datos de las canciones favoritas\label{rdt:favoritas-ent}}
 \begin{itemize}
-\item Alias de usuario (Una serie de hasta 12 caracteres del usuario que introduce el comentario)
+\item Alias de usuario (Una serie de hasta 12 caracteres del usuario que marca como favorita)
+\item Contraseña (Una serie de entre 7 y 128 caracteres)
 \item Identificador de canción (Cadena de 16 caracteres numéricos)
 \end{itemize}
 
@@ -292,6 +303,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \begin{itemize}
 \item Alias del usuario que sigue (Una serie de hasta 12 caracteres del usuario que sigue)
 \item Alias del usuario que seguido (Una serie de hasta 12 caracteres del usuario seguido)
+\item Contraseña del usuario que sigue(Una serie de entre 7 y 128 caracteres)
 \end{itemize}
 
 \rdt{Datos para ver información de una canción \label{rdt:id-cancion}}
@@ -638,7 +650,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 %(RD \ref{rdu:datos-nuevo-genero}, RF \ref{rfu:añadir-genero})
 \rsu{Restricciones al añadir una canción}
 \begin{itemize}
-\item El autor y género deben estar registrados previamente en el sistema. 
+\item El autor y género deben estar registrados previamente en el sistema.
 \end{itemize}
 (RD \ref{rdu:datos-nueva-cancion}, RF \ref{rfu:añadir-cancion})
 
@@ -664,7 +676,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 
 \rsd{Restricciones para iniciar sesión}
 \begin{itemize}
-\item El usuario y la contraseña deben coincidir con los almacenados en el sistema. 
+\item El usuario y la contraseña deben coincidir con los almacenados en el sistema.
 \end{itemize}
 (RD \ref{rdd:inicio-sesion}, RF \ref{rfd:inicio-sesion})
 
@@ -699,13 +711,13 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 
 \rst{Restricciones para añadir una canción a favoritos}
 \begin{itemize}
-\item Es necesario haber escuchado una canción para añadirla a favoritos. 
+\item Es necesario haber escuchado una canción para añadirla a favoritos.
 \end{itemize}
 (RD \ref{rdt:favoritas-man}, RF \ref{rft:favorita})\label{rst:favorita}
 
 \rst{Restricciones para añadir una valoración}
 \begin{itemize}
-\item Es necesario haber escuchado una canción para añadir una valoración. 
+\item Es necesario haber escuchado una canción para añadir una valoración.
 \end{itemize}
 (RD \ref{rdt:valoracion-man}, RF\ref{rft:valorar})\label{rst:valorar}
 
@@ -726,7 +738,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 \section{Validación cruzada de requisitos}
 
 \subsection{Validación cruzada de requisitos de datos}
-\keepXColumns 
+\keepXColumns
 \begin{tabularx}{\linewidth}{l|XXX}
   RD & Entrada & Manejo & Salida \\
   RD \ref{rdu:datos-nueva-cancion} & RF \ref{rfu:añadir-cancion} & & \\
