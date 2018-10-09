@@ -239,10 +239,20 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \end{itemize}
 \rdd{Datos introducidos para la modificación de un dato personal\label{rdd:modificar-dato}}
 \begin{itemize}
+\item Alias (Una serie de hasta 12 caracteres)
+\item Contraseña (Una serie de entre 7 y 128 caracteres)
 \item Dato antiguo (En el formato correspondiente al dato)
 \item Dato nuevo (En el mismo formato que el dato eliminado)
 \end{itemize}
-
+\rdd{Datos de autenticación para la baja de un usuario \label{rdd:inicio-sesion-baja}}
+\begin{itemize}
+\item Alias (Una serie de hasta 12 caracteres)
+\item Contraseña (Una serie de entre 7 y 128 caracteres)
+\end{itemize}
+\rdd{Datos introducidos para acceder al perfil de un usuario \label{rdd:ver-perfil}}
+\begin{itemize}
+\item Alias del usuario (Serie de hasta 12 caracteres).
+\end{itemize}
 \refstepcounter{RD}
 
 % Social - datos entrada
@@ -454,6 +464,13 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 % Usuario
 
+\rdd{Datos del perfil de un usuario \label{rdd:ver-perfil-sal}}
+\begin{itemize}
+\item Alias (Serie de hasta 12 caracteres)
+\item Foto (Imagen .png)
+\item Biografía (Serie de hasta 500 caracteres)
+\end{itemize}
+
 
 \refstepcounter{RD}
 
@@ -535,11 +552,13 @@ Esta función registra un usuario dentro del sistema (RD \ref{rdd:registro-usuar
 Esta función permite a un usuario acceder a las acciones permitidas para dicho usuario, a partir de los datos de entrada (RD \ref{rdd:inicio-sesion}).
 
 \rfd{Modificar un dato\label{rfd:modificar-dato}}
-Esta función registra el cambio de un dato en el sistema (RD \ref{rdd:modificar-dato-almacenados}), a partir de los (RD \ref{rdd:modificar-dato}, el sistema debe verificar que el usuario es el adecuado, utilizando (RD \ref{rdd:inicio-sesion}).
+Esta función registra el cambio de un dato en el sistema (RD \ref{rdd:modificar-dato-almacenados}), a partir de los (RD \ref{rdd:modificar-dato}).
 
 \rfd{Dar de baja\label{rfd:dar-baja}}
-Esta función eliminará una cuenta de usuario del sistema (RD \ref{rdd:eliminar-usuario}), para ello son necesarios los datos (RD \ref{rdd:inicio-sesion}).
+Esta función eliminará una cuenta de usuario del sistema (RD \ref{rdd:eliminar-usuario}), para ello son necesarios los datos (RD \ref{rdd:inicio-sesion-baja}).
 
+\rfd{Ver perfil\label{rfd:ver-perfil}}
+Esta función permite ver el perfil de un usuario dado su alias (RD \ref{rdd:ver-perfil}), dando como salida la siguiente información (RD \ref{rdd:ver-perfil-sal}).
 \refstepcounter{RF}
 
 % Social - requisitos funcionales
@@ -622,10 +641,27 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 \item El campo alias se compondrá de una serie alfanumérica de hasta 12 caracteres.
 \item La contraseña se compondrá de una serie alfanumérica de entre 7 y 20 caracteres.
 \item La biografía se compondrá de una serie alfanumérica de hasta 500 caracteres.
-\item La fotografáa de perfil sera una imagen en formato png.
+\item La fotografía de perfil sera una imagen en formato png.
 \item La fecha de nacimiento tendrá el formato DD/MM/YYYY
-\item Los datos de registro opcionales no rellenos se almacenaran como cadenas vacáas.
+\item Los datos de registro opcionales no rellenos se almacenaran como cadenas vacías.
 \end{itemize}
+
+\rsd{Restricciones para modificar un dato personal}
+\begin{itemize}
+\item El usuario y la contraseña de los datos de entrada deben coincidir con los del usuario que se desea modificar.
+\item El nuevo dato personal debe cumplir los mismos requisitos que el que se desea modificar
+\end{itemize}
+
+\rsd{Restricciones para darse de baja}
+\begin{itemize}
+\item El usuario y la contraseña de los datos de entrada deben coincidir con los de el usuario que se desea dar de baja.
+\end{itemize}
+
+\rsd{Restricciones para ver un perfil}
+\begin{itemize}
+\item El alias introducido debe coincidir con algún usuario existente.
+\item Los datos de salida deben existir, en caso de no hacerlo no se mostrarán.
+  \end{itemize}
 
 \refstepcounter{RS}
 
@@ -668,6 +704,8 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RD \ref{rdd:registro-usuario} & RF \ref{rfd:registro-usuario} & & \\
   RD \ref{rdd:inicio-sesion} & RF \ref{rfd:inicio-sesion} & & \\
   RD \ref{rdd:modificar-dato} & RF \ref{rfd:modificar-dato} & & \\
+  RD \ref{rdd:inicio-sesion-baja} & RF \ref{rfd:dar-baja} & & \\
+  RD \ref{rdd:ver-perfil} & RF \ref{rfd:ver-perfil} & & \\
   RD \ref{rdt:comentario-ent} & RF \ref{rft:comentar} & & \\
   RD \ref{rdt:valoracion-ent} & RF \ref{rft:valorar} & & \\
   RD \ref{rdt:escuchadas-ent} & RF \ref{rft:escuchada} & & \\
@@ -697,6 +735,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 
   %
 
+  RD \ref{rdd:ver-perfil-sal} & & & RF \ref{rfd:ver-perfil} \\
   RD \ref{rdt:comentario-sal} & & & RF \ref{rft:ver-comentarios} \\
   RD \ref{rdt:valoracion-sal} & & & RF \ref{rft:ver-valoración} \\
   RD \ref{rdt:favoritos-sal} & & & RF \ref{rft:ver-favoritos} \\
