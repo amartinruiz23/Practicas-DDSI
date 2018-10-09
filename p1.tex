@@ -644,24 +644,34 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 \item La biografía se compondrá de una serie alfanumérica de hasta 500 caracteres.
 \item La fotografía de perfil sera una imagen en formato png.
 \item La fecha de nacimiento tendrá el formato DD/MM/YYYY
-\item Los datos de registro opcionales no rellenos se almacenaran como cadenas vacías.
+\item Los datos de registro opcionales no rellenos se almacenaran como cadenas vacías.\\
+(RD \ref{rdd:registro-usuario}, RF \ref{rfd:registro-usuario})
+
 \end{itemize}
+
+\rsd{Restricciones para iniciar sesión}
+\begin{itemize}
+\item El usuario y la contraseña deben coincidir con los almacenados en el sistema. (RD \ref{rdd:inicio-sesion}, RF \ref{rfd:inicio-sesion})
+  \end{itemize}
 
 \rsd{Restricciones para modificar un dato personal}
 \begin{itemize}
 \item El usuario y la contraseña de los datos de entrada deben coincidir con los del usuario que se desea modificar.
-\item El nuevo dato personal debe cumplir los mismos requisitos que el que se desea modificar
+\item El nuevo dato personal debe cumplir los mismos requisitos que el que se desea modificar.\\
+(RD \ref{rdd:modificar-dato}, RF \ref{rfd:modificar-dato})
+
 \end{itemize}
 
 \rsd{Restricciones para darse de baja}
 \begin{itemize}
-\item El usuario y la contraseña de los datos de entrada deben coincidir con los de el usuario que se desea dar de baja.
+\item El usuario y la contraseña de los datos de entrada deben coincidir con los de el usuario que se desea dar de baja. (RD \ref{rdd:inicio-sesion-baja}, RF \ref{rfd:dar-baja})
 \end{itemize}
 
 \rsd{Restricciones para ver un perfil}
 \begin{itemize}
 \item El alias introducido debe coincidir con algún usuario existente.
-\item Los datos de salida deben existir, en caso de no hacerlo no se mostrarán.
+\item Los datos de salida deben existir, en caso de no hacerlo no se mostrarán.\\
+(RD \ref{rdd:ver-perfil}, RD \ref{rdd:ver-perfil-sal}, RF \ref{rfd:ver-perfil})
   \end{itemize}
 
 \refstepcounter{RS}
