@@ -204,6 +204,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Descripción
 \end{itemize}
 
+
 \rdu{Datos utilizados al añadir un nuevo autor\label{rdu:datos-nuevo-autor}}
 
 \begin{itemize}
@@ -215,6 +216,8 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \end{itemize}
 
 \refstepcounter{RD}
+
+% Usuario
 
 \rdd{Datos utilizados en el registro de un nuevo usuario\label{rdd:registro-usuario}}
 \begin{itemize}
@@ -230,7 +233,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Alias
 \item Contraseña
 \end{itemize}
-\rdd{Datos introducidos para la modificación de un dato personal}
+\rdd{Datos introducidos para la modificación de un dato personal\label{rdd:modificar-dato}}
 \begin{itemize}
 \item Dato antiguo
 \item Dato nuevo
@@ -313,7 +316,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \refstepcounter{RD}
 
 % Usuario
-\rdd{Datos almacenados en el registro de un usuario}
+\rdd{Datos almacenados en el registro de un usuario\label{rdd:registro-usuario-almacenados}}
 \begin{itemize}
 \item Alias
 \item Contraseña
@@ -322,14 +325,23 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Foto
 \item Biografía
 \end{itemize}
-\rdd{Datos almacenados ante la modificación de un dato personal}
+\rdd{Datos almacenados ante la modificación de un dato personal\label{rdd:modificar-dato-almacenados}}
 \begin{itemize}
 \item Nuevo dato
 \end{itemize}
-\rdd{Datos eliminados ante la modificacion de un dato personal}
+\rdd{Datos eliminados ante la modificacion de un dato personal\label{rdd:eliminar-dato-almacenados}}
 \begin{itemize}
 \item Dato antiguo.
 \end{itemize}
+\rdd{Datos eliminados ante la baja de un usuario \label{rdd:eliminar-usuario}}
+\begin{itemize}
+\item Alias
+\item Contraseña
+\item Correo electrónico
+\item Fecha de nacimiento
+\item Foto
+\item Biografía
+  \end{itemize}
 
 \refstepcounter{RD}
 
@@ -432,25 +444,25 @@ Para poder añadir un género el usuario necesita ser administrador o moderador.
 
 \refstepcounter{RF}
 
-\rfd{Registro de un nuevo usuario}
+\rfd{Registro de un nuevo usuario\label{rfd:registro-usuario}}
 Ante el registro de un nuevo usuario, este debe proporcionar los siguientes datos: RD \ref{rdd:registro-usuario}
 %RD1
 El sistema en respuesta almacenará los siguientes datos:
-RD \ref{rdd:inicio-sesion}
+RD \ref{rdd:registro-usuario-almacenados}
 
-\rfd{Inicio de sesión}
-Para iniciar sesión el usuario deberá proporcionar los siguientes datos:
-RD3
+\rfd{Inicio de sesión\label{rfd:inicio-sesion}}
+Para iniciar sesión el usuario deberá proporcionar los siguientes datos: RD \ref{rdd:inicio-sesion}
 El sistema en respuesta le permitirá acceder si los datos introducidos son correctos.
 
-\rfd{Modificar un dato}
+\rfd{Modificar un dato\label{rfd:modificar-dato}}
 Para cambiar un dato será necesario haber accedido al sistema y proporcionar los datos
-RD4
+RD \ref{rdd:modificar-dato}.
 El sistema almacenará los datos
-RD5
+RD \ref{rdd:modificar-dato-almacenados}
+y eliminará RD \ref{rdd:eliminar-dato-almacenados}
 
 \rfd{Dar baja}
-Para dar de baja una cuenta en el sistema será necesario haber accedido a él.
+Para dar de baja una cuenta en el sistema será necesario haber accedido a él. Se eliminaran los siguientes datos del sistema: RD \ref{rdd:eliminar-usuario}
 
 \refstepcounter{RF}
 
