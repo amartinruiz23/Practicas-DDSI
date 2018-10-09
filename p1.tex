@@ -140,6 +140,7 @@
 \usepackage{array}
 \usepackage{adjustbox}
 \usepackage{tabularx}
+\usepackage{ltablex}
 
 \title{Práctica 1. Descripción del sistema y especificación de requisitos \\\large Diseño y Desarrollo de Sistemas de Información}
 \author{Sofía Almedia Bruno \and José María Martín Luque \and Antonio Martín Ruiz \and Luis Antonio Ortega Andrés}
@@ -660,7 +661,8 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 
 \section{Validación cruzada de requisitos}
 
-\begin{tabularx}{\textwidth}{l|XXX}
+\keepXColumns 
+\begin{tabularx}{\linewidth}{l|XXX}
   RD & Entrada & Manejo & Salida \\
   RD \ref{rdu:datos-nueva-cancion} & RF \ref{rfu:añadir-cancion} & & \\
   RD \ref{rdu:datos-nuevo-genero} & RF \ref{rfu:añadir-genero} & & \\
