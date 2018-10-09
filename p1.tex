@@ -40,7 +40,7 @@
 \SetTracking{encoding={*}, shape=sc}{0}
 
 \usepackage{enumitem}
-\setlist[itemize]{leftmargin=*}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=0pt}
 \setlist[enumerate]{leftmargin=*}
 
 \usepackage{changepage}
@@ -86,25 +86,25 @@
 \setcounter{RDu}{0}
 \renewcommand{\theRDu}{\theRD.\arabic{RDu}}
 \newcommand{\rdu}[1]{\noindent%
-  \refstepcounter{RDu}\textbf{RD \theRDu}\quad #1\\%
+  \refstepcounter{RDu}\textbf{RD \theRDu}\quad #1%
 }
 \newcounter{RDd}
 \setcounter{RDd}{0}
 \renewcommand{\theRDd}{\theRD.\arabic{RDd}}
 \newcommand{\rdd}[1]{\noindent%
-  \refstepcounter{RDd}\textbf{RD \theRDd}\quad #1\\%
+  \refstepcounter{RDd}\textbf{RD \theRDd}\quad #1%
 }
 \newcounter{RDt}
 \setcounter{RDt}{0}
 \renewcommand{\theRDt}{\theRD.\arabic{RDt}}
 \newcommand{\rdt}[1]{\noindent%
-  \refstepcounter{RDt}\textbf{RD \theRDt}\quad #1\\%
+  \refstepcounter{RDt}\textbf{RD \theRDt}\quad #1%
 }
 \newcounter{RDc}
 \setcounter{RDc}{0}
 \renewcommand{\theRDc}{\theRD.\arabic{RDc}}
 \newcommand{\rdc}[1]{\noindent%
-  \refstepcounter{RDc}\textbf{RD \theRDc}\quad #1\\%
+  \refstepcounter{RDc}\textbf{RD \theRDc}\quad #1%
 }
 
 % Contadores restricciones semánticas
@@ -114,25 +114,25 @@
 \setcounter{RSu}{0}
 \renewcommand{\theRSu}{\theRS.\arabic{RSu}}
 \newcommand{\rsu}[1]{\noindent%
-  \refstepcounter{RSu}\textbf{RS \theRSu}\quad #1\\%
+  \refstepcounter{RSu}\textbf{RS \theRSu}\quad #1%
 }
 \newcounter{RSd}[RS]
 \setcounter{RSd}{0}
 \renewcommand{\theRSd}{\theRS.\arabic{RSd}}
 \newcommand{\rsd}[1]{\noindent%
-  \refstepcounter{RSd}\textbf{RS \theRSd}\quad #1\\%
+  \refstepcounter{RSd}\textbf{RS \theRSd}\quad #1%
 }
 \newcounter{RSt}[RS]
 \setcounter{RSt}{0}
 \renewcommand{\theRSt}{\theRS.\arabic{RSt}}
 \newcommand{\rst}[1]{\noindent%
-  \refstepcounter{RSt}\textbf{RS \theRSt}\quad #1\\%
+  \refstepcounter{RSt}\textbf{RS \theRSt}\quad #1%
 }
 \newcounter{RSc}[RS]
 \setcounter{RSc}{0}
 \renewcommand{\theRSc}{\theRS.\arabic{RSc}}
 \newcommand{\rsc}[1]{\noindent%
-  \refstepcounter{RSc}\textbf{RS \theRSc}\quad #1\\%
+  \refstepcounter{RSc}\textbf{RS \theRSc}\quad #1%
 }
 
 
@@ -618,6 +618,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   \item El álbum al que pertenece la canción es una cadena de 20 caracteres como máximo.
   \item La portada es una imagen PNG de dimensiones 512 $\times$ 512 píxeles.
 \end{itemize}
+(RD \ref{rdu:datos-nueva-cancion}, RF \ref{rfu:añadir-cancion})
 
 \rsu{Restricciones al añadir un autor}
 \begin{itemize}
@@ -628,12 +629,14 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   \item La biografía podrá tener 2000 caracteres como máximo.
   \item Los géneros del autor deberán seleccionarse de entre la lista de géneros creados.
 \end{itemize}
+(RD \ref{rdu:datos-nuevo-autor}, RF \ref{rfu:añadir-autor})
 
 \rsu{Restricciones al añadir un género}
 \begin{itemize}
   \item El nombre del género tendrá como máximo 20 caracteres.
   \item La descripción del género tendrá como máximo 500 caracteres.
 \end{itemize}
+(RD \ref{rdu:datos-nuevo-genero}, RF \ref{rfu:añadir-genero})
 
 \refstepcounter{RS}
 
