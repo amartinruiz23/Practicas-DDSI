@@ -317,26 +317,6 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Identificador de una canción (Cadena de 16 caracteres numéricos)
 \end{itemize}
 
-\rdt{Datos para ver favoritos \label{rdt:ver-fav-ent}}
-\begin{itemize}
-\item Alias de usuario (una cadena de hasta 12 caracteres)
-\end{itemize}
-
-\rdt{Datos para ver pendientes \label{rdt:ver-pen-ent}}
-\begin{itemize}
-\item Alias de usuario (una cadena de hasta 12 caracteres)
-\end{itemize}
-
-\rdt{Datos para ver escuchadas \label{rdt:ver-esc-ent}}
-\begin{itemize}
-\item Alias de usuario (una cadena de hasta 12 caracteres)
-\end{itemize}
-
-\rdt{Datos para ver seguidos \label{rdt:ver-seguidos-ent}}
-\begin{itemize}
-\item Alias de usuario (una cadena de hasta 12 caracteres)
-\end{itemize}
-
 \refstepcounter{RD}
 
 % Búsqueda
@@ -481,8 +461,11 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Alias (Serie de hasta 12 caracteres)
 \item Foto (Imagen PNG)
 \item Biografía (Serie de hasta 500 caracteres)
+\item Canciones favoritas (Una lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
+\item Canciones pendientes (Una lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
+\item Canciones escuchadas (Una lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
+\item Seguidos (Lista de alias de usuarios)
 \end{itemize}
-
 
 \refstepcounter{RD}
 
@@ -501,31 +484,6 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Valor (un número entero entre 0 y 10)
 \end{itemize}
 
-\rdt{Los datos de las canciones escuchadas\label{rdt:escuchadas-sal}}
-\begin{itemize}
-\item Alias de usuario (Una serie de hasta 12 caracteres)
-\item Foto del usuario (Imagen en formato PNG)
-\item Escuchadas (lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
-\end{itemize}
-
-\rdt{Los datos de las canciones pendientes\label{rdt:pendientes-sal}}
-\begin{itemize}
-\item Alias de usuario (Una serie de hasta 12 caracteres)
-\item Foto del usuario (Imagen en formato PNG)
-\item Pendientes (lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
-\end{itemize}
-
-\rdt{Los datos de las canciones favoritas\label{rdt:favoritos-sal}}
-\begin{itemize}
-\item Alias de usuario (Una serie de hasta 12 caracteres)
-\item Foto del usuario (Imagen en formato PNG)
-\item Favoritas (lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
-\end{itemize}
-
-\rdt{Los datos de un usuario al que sigue\label{rdt:seguir-sal}}
-\begin{itemize}
-\item Seguidos (lista formada por alias de usuarios (una serie de hasta 12 caracteres))
-\end{itemize}
 
 \refstepcounter{RD}
 
@@ -595,20 +553,10 @@ Esta función proporciona los comentarios de una canción (RD \ref{rdt:comentari
 \rft{Ver valoración\label{rft:ver-valoracion}}
 Esta función devuelve la valoración que un usuario ha dado a una canción (RD \ref{rdt:valoracion-sal}), a partir del usuario y la canción (RD \ref{rdt:ver-val-ent}).
 
-\rft{Ver favoritos\label{rft:ver-favoritos}}
-Esta función proporciona las canciones marcadas como favoritas de un usuario (RD \ref{rdt:favoritos-sal}), a partir del usuario (RD \ref{rdt:ver-fav-ent}).
-
-\rft{Ver pendientes\label{rft:ver-pendientes}}
-Esta función proporciona las canciones marcadas como pendientes de un usuario (RD \ref{rdt:pendientes-sal}), a partir del usuario (RD \ref{rdt:ver-pen-ent}).
-
-\rft{Ver escuchadas\label{rft:ver-escuchadas}}
-Esta función proporciona las canciones marcadas como pendientes de un usuario (RD \ref{rdt:escuchadas-sal}), a partir del usuario (RD \ref{rdt:ver-esc-ent}).
-
 \rft{Seguir\label{rft:seguir}}
 Esta función registra que un usuario sigue a otro (RD \ref{rdt:seguir-man}), a partir de los datos proporcionados por el primero (RD \ref{rdt:seguir-ent}).
 
-\rft{Ver seguidos\label{rft:seguidos}}
-Esta función muestra los usuarios que un usuario sigue (RD \ref{rdt:seguir-sal}), a partir del nombre de usuario (RD \ref{rdt:ver-seguidos-ent}).
+
 \refstepcounter{RF}
 
 % Búsqueda
@@ -758,10 +706,6 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RD \ref{rdc:busqueda-ent} & RF \ref{rfc:buscar} & & \\
   RD \ref{rdt:id-cancion}  & RF \ref{rft:ver-comentarios} & & \\
   RD \ref{rdt:ver-val-ent} & RF \ref{rft:ver-valoracion} & & \\
-  RD \ref{rdt:ver-fav-ent} & RF \ref{rft:ver-favoritos} & & \\
-  RD \ref{rdt:ver-pen-ent} & RF \ref{rft:ver-pendientes} & & \\
-  RD \ref{rdt:ver-esc-ent} & RF \ref{rft:ver-escuchadas} & & \\
-  RD \ref{rdt:ver-seguidos-ent} & RF \ref{rft:seguidos} & & \\
   RD \ref{rdu:datos-almacenados-nueva-cancion} & & RF \ref{rfu:añadir-cancion} & \\
   RD \ref{rdu:datos-almacenados-nuevo-genero} & & RF \ref{rfu:añadir-genero} & \\
   RD \ref{rdu:datos-almacenados-nuevo-autor} & & RF \ref{rfu:añadir-autor} & \\
@@ -784,10 +728,6 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RD \ref{rdd:ver-perfil-sal} & & & RF \ref{rfd:ver-perfil} \\
   RD \ref{rdt:comentario-sal} & & & RF \ref{rft:ver-comentarios} \\
   RD \ref{rdt:valoracion-sal} & & & RF \ref{rft:ver-valoracion} \\
-  RD \ref{rdt:favoritos-sal} & & & RF \ref{rft:ver-favoritos} \\
-  RD \ref{rdt:pendientes-sal} & & & RF \ref{rft:ver-pendientes} \\
-  RD \ref{rdt:seguir-sal} & & & RF \ref{rft:seguidos} \\
-  RD \ref{rdt:escuchadas-sal} & & & RF \ref{rft:ver-escuchadas} \\
   RD \ref{rdc:busqueda-sal} & & & RF \ref{rfc:buscar} \\
   RD \ref{rdc:sugerencia-sal} & & & RF \ref{rfc:sugerir} \\
 
@@ -810,13 +750,9 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RF \ref{rft:escuchada} & RD \ref{rdt:escuchadas-ent} & RD \ref{rdt:escuchadas-man} & \\
   RF \ref{rft:pendiente} & RD \ref{rdt:pendientes-ent} & RD \ref{rdt:pendientes-man} & \\
   RF \ref{rft:favorita} & RD \ref{rdt:favoritas-ent} & RD \ref{rdt:favoritas-man} & \\
-  RF \ref{rft:ver-comentarios} & RD \ref{rdt:id-cancion} & & \ref{rdt:comentario-sal}\\
+  RF \ref{rft:ver-comentarios} & RD \ref{rdt:id-cancion} & & RD \ref{rdt:comentario-sal}\\
   RF \ref{rft:ver-valoracion} & RD \ref{rdt:ver-val-ent} & & RD \ref{rdt:valoracion-sal} \\
-  RF \ref{rft:ver-favoritos} & RD \ref{rdt:ver-fav-ent} & & RD \ref{rdt:favoritos-sal}\\
-  RF \ref{rft:ver-pendientes} & RD \ref{rdt:ver-pen-ent} & & RD \ref{rdt:pendientes-sal} \\
-  RF \ref{rft:ver-escuchadas} & RD \ref{rdt:ver-esc-ent} & & RD \ref{rdt:escuchadas-sal} \\
   RF \ref{rft:seguir} & RD \ref{rdt:seguir-ent} & RD \ref{rdt:seguir-man} & \\
-  RF \ref{rft:seguidos} &  & RD \ref{rdt:seguir-man} & RD \ref{rdt:seguir-sal} \\
   RF \ref{rfc:buscar} & RD \ref{rdc:busqueda-ent} & & RD \ref{rdc:busqueda-sal} \\
   RF \ref{rfc:sugerir} & & RD \ref{rdc:sugerencia-man} & RD \ref{rdc:sugerencia-sal}\\
 \end{tabularx}
