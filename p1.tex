@@ -181,7 +181,7 @@ Un usuario puede seguir a otro usuario, teniendo así una notificación de cuán
 
 %%Subsistema de búsqueda
 
-Se pueden buscar canciones en el sistema por su título, autor, género, álbum o año. También pueden consultarse autores y géneros, de los cuales se podrá obtener la información que exista en el sistema y una lista de canciones relacionadas.
+Se pueden buscar canciones en el sistema por su título, autor, género, álbum o año. También pueden consultarse autores y géneros, de los cuales se podrá obtener la información que exista en el sistema y una lista de canciones relacionadas. Las búsqueda podrán realizarse especificando qué se quiere buscar (canción, autor, género) o búsqueda general de cualquier elemento relacionado con el texto de búsqueda.
 
 Existe un sistema de sugerencias consistente en búsquedas programadas automáticamente en función de las canciones que un usuario y sus seguidos hayan añadido a favoritos y valorado, teniendo en cuenta la puntuación dada.
 
@@ -346,11 +346,29 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 % Búsqueda
 
-\rdc{Datos utilizados en una búsqueda\label{rdc:busqueda-ent}}
+\rdc{Datos utilizados en una búsqueda general\label{rdc:busqueda-ent}}
 \begin{itemize}
 \item Texto de la búsqueda (una cadena de entre 1 y 100 caracteres)
 \end{itemize}
 
+\rdc{Datos utilizados en una búsqueda de canciones\label{rdc:busqueda-canc-ent}}
+\begin{itemize}
+\item Título (Una cadena no vacía de hasta 50 caracteres)
+\item Autor (Identificador del autor) (opcional)
+\item Álbum (Serie de hasta 20 caracteres) (opcional)
+\end{itemize}
+
+\rdc{Datos utilizados en una búsqueda de autores\label{rdc:busqueda-aut-ent}}
+\begin{itemize}
+\item Nombre (Cadena de hasta 30 caracteres)
+\item Procedencia (opcional)
+\end{itemize}
+
+\rdc{Datos utilizados en una búsqueda de géneros\label{rdc:busqueda-gen-ent}}
+\begin{itemize}
+\item Nombre (Cadena de hasta 30 caracteres)
+\item Procedencia (opcional)
+\end{itemize}
 
 \subsection{Datos manejados}
 \setcounter{RD}{1}
@@ -511,6 +529,21 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Nombre de género (Cadena de hasta 20 caracteres)
 \end{itemize}
 
+\rdc{Los datos manejados en una búsqueda de canciones\label{rdc:busqueda-can-man}}
+\begin{itemize}
+  \item Identificador de una canción (Cadena de 16 caracteres numéricos)
+\end{itemize}
+
+\rdc{Los datos manejados en una búsqueda de autores\label{rdc:busqueda-aut-man}}
+\begin{itemize}
+  \item Identificador de un autor (Cadena numérica de 16 caracteres)
+\end{itemize}
+
+\rdc{Los datos manejados en una búsqueda de géneros\label{rdc:busqueda-gen-man}}
+\begin{itemize}
+  \item Nombre de género (Cadena de hasta 20 caracteres)
+\end{itemize}
+
 \rdc{Los datos manejados en una sugerencia\label{rdc:sugerencia-man}}
 \begin{itemize}
   \item Identificador de una canción (Cadena de 16 caracteres numéricos)
@@ -560,6 +593,21 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \begin{itemize}
 \item Autores relacionados (Lista de identificadores de autores)
 \item Canciones relacionadas (Lista de identificadores de canciones)
+\item Géneros relacionados (Lista de nombres de géneros)
+\end{itemize}
+
+\rdc{Datos obtenidos de una búsqueda de canciones\label{rdc:busqueda-canc-sal}}
+\begin{itemize}
+\item Canciones relacionadas (Lista de identificadores de canciones)
+\end{itemize}
+
+\rdc{Datos obtenidos de una búsqueda de autores\label{rdc:busqueda-aut-sal}}
+\begin{itemize}
+\item Autores relacionados (Lista de identificadores de autores)
+\end{itemize}
+
+\rdc{Datos obtenidos de una búsqueda de géneros\label{rdc:busqueda-gen-sal}}
+\begin{itemize}
 \item Géneros relacionados (Lista de nombres de géneros)
 \end{itemize}
 
@@ -649,6 +697,15 @@ Esta función registra que un usuario sigue a otro (RD \ref{rdt:seguir-man}), a 
 
 \rfc{Realizar una búsqueda \label{rfc:buscar}}
 Esta función devuelve canciones, géneros y autores relacionados (RD \ref{rdc:busqueda-sal}), a partir de un texto introducido por el usuario (RD \ref{rdc:busqueda-ent}).
+
+\rfc{Realizar una búsqueda de canciones\label{rfc:buscar-cancion}}
+Esta función devuelve canciones relacionadas (RD \ref{rdc:busqueda-canc-sal}), a partir de un texto introducido por el usuario (RD \ref{rdc:busqueda-canc-ent}).
+
+\rfc{Realizar una búsqueda de autores\label{rfc:buscar-autor}}
+Esta función devuelve autores relacionados (RD \ref{rdc:busqueda-aut-sal}), a partir de un texto introducido por el usuario (RD \ref{rdc:busqueda-aut-ent}).
+
+\rfc{Realizar una búsqueda de géneros\label{rfc:buscar-genero}}
+Esta función devuelve canciones, géneros y autores relacionados (RD \ref{rdc:busqueda-gen-sal}), a partir de un texto introducido por el usuario (RD \ref{rdc:busqueda-gen-ent}).
 
 \rfc{Realizar una sugerencia \label{rfc:sugerir}}
 Esta función realiza sugerencias como búsquedas automáticas a partir de canciones, artistas y géneros (RD \ref{rdc:sugerencia-man}) y devuelve canciones, artistas y géneros relacionados (RD \ref{rdc:sugerencia-sal}).
@@ -816,6 +873,9 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RD \ref{rdt:pendientes-man} & & RF \ref{rft:pendiente} & \\
   RD \ref{rdt:seguir-man} & & RF \ref{rft:seguir} & \\
   RD \ref{rdc:busqueda-man} && RF \ref{rfc:buscar} & \\
+  RD \ref{rdc:busqueda-can-man} && RF \ref{rfc:buscar-cancion} & \\
+  RD \ref{rdc:busqueda-aut-man} && RF \ref{rfc:buscar-autor} & \\
+  RD \ref{rdc:busqueda-gen-man} && RF \ref{rfc:buscar-genero} & \\
   RD \ref{rdc:sugerencia-man} && RF \ref{rfc:sugerir} & \\
 
   %
@@ -824,10 +884,14 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RD \ref{rdt:comentario-sal} & & & RF \ref{rft:ver-comentarios} \\
   RD \ref{rdt:valoracion-sal} & & & RF \ref{rft:ver-valoracion} \\
   RD \ref{rdc:busqueda-sal} & & & RF \ref{rfc:buscar} \\
+  RD \ref{rdc:busqueda-canc-sal} & & & RF \ref{rfc:buscar-cancion} \\
+  RD \ref{rdc:busqueda-aut-sal} & & & RF \ref{rfc:buscar-autor} \\
+  RD \ref{rdc:busqueda-gen-sal} & & & RF \ref{rfc:buscar-genero} \\
   RD \ref{rdc:sugerencia-sal} & & & RF \ref{rfc:sugerir} \\
 
-  % Faltan los requisitos de salida de Búsqueda (Antonio), porque no existen
 \end{tabularx}
+
+  %
 
 \subsection{Validación cruzada de requisitos funcionales}
 \begin{tabularx}{\linewidth}{l|XXX}
@@ -855,6 +919,9 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RF \ref{rft:ver-valoracion} & RD \ref{rdt:ver-val-ent} & & RD \ref{rdt:valoracion-sal} \\
   RF \ref{rft:seguir} & RD \ref{rdt:seguir-ent} & RD \ref{rdt:seguir-man} & \\
   RF \ref{rfc:buscar} & RD \ref{rdc:busqueda-ent} & & RD \ref{rdc:busqueda-sal} \\
+  RF \ref{rfc:buscar-cancion} & RD \ref{rdc:busqueda-canc-ent} & & RD \ref{rdc:busqueda-canc-sal} \\
+  RF \ref{rfc:buscar-autor} & RD \ref{rdc:busqueda-aut-ent} & & RD \ref{rdc:busqueda-aut-sal} \\
+  RF \ref{rfc:buscar-genero} & RD \ref{rdc:busqueda-gen-ent} & & RD \ref{rdc:busqueda-gen-sal} \\
   RF \ref{rfc:sugerir} & & RD \ref{rdc:sugerencia-man} & RD \ref{rdc:sugerencia-sal}\\
 \end{tabularx}
 
