@@ -225,6 +225,31 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
     \item Contraseña (Una serie de entre 7 y 128 caracteres)
 \end{itemize}
 
+\rdu{Datos utilizados al modificar una canción \label{rdu:datos-modificar-cancion}}
+\begin{itemize}
+  \item Dato antiguo (En el formato correspondiente al dato)
+  \item Dato nuevo (En el mismo formato que el dato eliminado)
+  \item Alias (Una serie de hasta 12 caracteres)
+  \item Contraseña (Una serie de entre 7 y 128 caracteres)
+\end{itemize}
+
+\rdu{Datos utilizados al modificar un género \label{rdu:datos-modificar-genero}}
+\begin{itemize}
+  \item Dato antiguo (En el formato correspondiente al dato)
+  \item Dato nuevo (En el mismo formato que el dato eliminado)
+  \item Alias (Una serie de hasta 12 caracteres)
+  \item Contraseña (Una serie de entre 7 y 128 caracteres)
+\end{itemize}
+
+\rdu{Datos utilizados al modificar un autor\label{rdu:datos-modificar-autor}}
+
+\begin{itemize}
+  \item Dato antiguo (En el formato correspondiente al dato)
+\item Dato nuevo (En el mismo formato que el dato eliminado)
+  \item Alias (Una serie de hasta 12 caracteres)
+  \item Contraseña (Una serie de entre 7 y 128 caracteres)
+\end{itemize}
+
 \refstepcounter{RD}
 
 % Usuario
@@ -350,6 +375,49 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 
 \rdu{Datos almacenados al añadir un nuevo autor\label{rdu:datos-almacenados-nuevo-autor}}
 
+\begin{itemize}
+  \item Nombre (Cadena de hasta 30 caracteres)
+  \item Procedencia (opcional) (Dos listas de 20 caracteres alfanuméricos)
+  \item Intervalo de actividad (opcional) (Dos fechas en el formato dd/mm/aaaa, siendo la segunda sustituible por `actualidad') (opcional)
+  \item Foto (opcional) (Imagen en formato PNG)
+  \item Biografía (opcional) (Serie de hasta 2000 caracteres alfanuméricos)
+  \item Géneros relacionados (opcional) (Lista de nombres de géneros)
+  \item Identificador de un autor (cadena numérica de 16 caracteres)
+\end{itemize}
+
+\rdd{Datos almacenados al modificar un dato de una canción\label{rdu:datos-almacenados-modificar-cancion}}
+\begin{itemize}
+\item Dato modificado (En el formato correspondiente al dato)
+\end{itemize}
+
+\rdd{Datos eliminados al eliminar una canción \label{rdu:datos-almacenados-eliminar-cancion}}
+\begin{itemize}
+  \item Título (Una cadena no vacía de hasta 50 caracteres)
+  \item Fecha (8 números en formado dd/mm/aaaa)
+  \item Autor (Identificador del autor)
+  \item Género (Nombre del género, cadena de hasta 20 caracteres)
+  \item Álbum (Serie de hasta 20 caracteres)
+  \item Portada (opcional) (Imagen PNG de dimensiones 512x512)
+  \item Identificador (Cadena de 16 caracteres numéricos)
+\end{itemize}
+
+\rdd{Datos almacenados al modificar un dato de un género\label{rdu:datos-almacenados-modificar-genero}}
+\begin{itemize}
+\item Dato modificado (En el formato correspondiente al dato)
+\end{itemize}
+
+\rdd{Datos eliminados al eliminar un género \label{rdu:datos-almacenados-eliminar-genero}}
+\begin{itemize}
+  \item Nombre (Cadena de hasta 20 caracteres)
+  \item Descripción (Cadena de hasta 500 caracteres)
+\end{itemize}
+
+\rdd{Datos almacenados al modificar un dato de un autor\label{rdu:datos-almacenados-modificar-autor}}
+\begin{itemize}
+\item Dato modificado (En el formato correspondiente al dato)
+\end{itemize}
+
+\rdd{Datos eliminados al eliminar un autor \label{rdu:datos-almacenados-eliminar-autor}}
 \begin{itemize}
   \item Nombre (Cadena de hasta 30 caracteres)
   \item Procedencia (opcional) (Dos listas de 20 caracteres alfanuméricos)
@@ -512,6 +580,24 @@ Esta función registra un autor en el sistema (RD \ref{rdu:datos-almacenados-nue
 
 \rfu{Añadir un nuevo género\label{rfu:añadir-genero}}
 Esta función registra un género en el sistema (RD \ref{rdu:datos-almacenados-nuevo-genero}), a partir de los datos proporcionados por el usuario (RD \ref{rdu:datos-nuevo-genero}).
+
+\rfu{Modificar una canción\label{rfu:modificar-cancion}}
+Esta función permite modificar un dato de una canción (RD \ref{rdu:datos-almacenados-modificar-cancion}), a partir de los datos proporcionados por el usuario (RD \ref{rdu:datos-modificar-cancion}).
+
+\rfu{Modificar un nuevo autor\label{rfu:modificar-autor}}
+Esta función permite modificar un dato de un autor (RD \ref{rdu:datos-almacenados-modificar-autor}), a partir de los datos proporcionados por el usuario (RD \ref{rdu:datos-modificar-autor}).
+
+\rfu{Modificar un nuevo género\label{rfu:modificar-genero}}
+Esta función permite modificar un dato de un género (RD \ref{rdu:datos-almacenados-modificar-genero}), a partir de los datos proporcionados por el usuario (RD \ref{rdu:datos-modificar-genero}).
+
+\rfu{Eliminar una canción\label{rfu:eliminar-cancion}}
+Esta función permite borrar una canción (RD \ref{rdu:datos-almacenados-eliminar-cancion}).
+
+\rfu{Eliminar un autor\label{rfu:eliminar-autor}}
+Esta función permite borrar un autor (RD \ref{rdu:datos-almacenados-eliminar-autor}).
+
+\rfu{Eliminar un género\label{rfu:eliminar-genero}}
+Esta función permite borrar un género (RD \ref{rdu:datos-almacenados-eliminar-genero}).
 
 \refstepcounter{RF}
 
@@ -692,6 +778,9 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RD \ref{rdu:datos-nueva-cancion} & RF \ref{rfu:añadir-cancion} & & \\
   RD \ref{rdu:datos-nuevo-genero} & RF \ref{rfu:añadir-genero} & & \\
   RD \ref{rdu:datos-nuevo-autor} & RF \ref{rfu:añadir-autor} \\
+  RD \ref{rdu:datos-modificar-cancion} & RF \ref{rfu:modificar-cancion} & & \\
+  RD \ref{rdu:datos-modificar-genero} & RF \ref{rfu:modificar-genero} & & \\
+  RD \ref{rdu:datos-modificar-autor} & RF \ref{rfu:modificar-autor} \\
   RD \ref{rdd:registro-usuario} & RF \ref{rfd:registro-usuario} & & \\
   RD \ref{rdd:inicio-sesion} & RF \ref{rfd:inicio-sesion} & & \\
   RD \ref{rdd:modificar-dato} & RF \ref{rfd:modificar-dato} & & \\
@@ -710,6 +799,12 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RD \ref{rdu:datos-almacenados-nuevo-genero} & & RF \ref{rfu:añadir-genero} & \\
   RD \ref{rdu:datos-almacenados-nuevo-autor} & & RF \ref{rfu:añadir-autor} & \\
 
+  RD \ref{rdu:datos-almacenados-modificar-cancion} & & RF \ref{rfu:modificar-cancion} & \\
+  RD \ref{rdu:datos-almacenados-modificar-genero} & & RF \ref{rfu:modificar-genero} & \\
+  RD \ref{rdu:datos-almacenados-modificar-autor} & & RF \ref{rfu:modificar-autor} &\\
+  RD \ref{rdu:datos-almacenados-eliminar-cancion} & & RF \ref{rfu:eliminar-cancion} & \\
+  RD \ref{rdu:datos-almacenados-eliminar-genero}&  & RF \ref{rfu:eliminar-genero} & \\
+  RD \ref{rdu:datos-almacenados-eliminar-autor} & & RF \ref{rfu:eliminar-autor} &\\
   %
 
   RD \ref{rdd:registro-usuario-almacenados} & & RF \ref{rfd:registro-usuario} & \\
@@ -740,6 +835,12 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RF \ref{rfu:añadir-cancion} & RD \ref{rdu:datos-nueva-cancion} & RD \ref{rdu:datos-almacenados-nueva-cancion} & \\
   RF \ref{rfu:añadir-autor} & RD \ref{rdu:datos-nuevo-autor} & RD \ref{rdu:datos-almacenados-nuevo-autor} & \\
   RF \ref{rfu:añadir-genero} & RD \ref{rdu:datos-nuevo-genero} & RD \ref{rdu:datos-almacenados-nuevo-genero}  & \\
+  RF \ref{rfu:modificar-cancion} & RD \ref{rdu:datos-modificar-cancion} & RD \ref{rdu:datos-almacenados-modificar-cancion}  & \\
+  RF \ref{rfu:modificar-autor} & RD \ref{rdu:datos-modificar-autor} & RD \ref{rdu:datos-almacenados-modificar-autor} & \\
+  RF \ref{rfu:modificar-genero} & RD \ref{rdu:datos-modificar-genero} & RD \ref{rdu:datos-almacenados-modificar-genero}  & \\
+  RF \ref{rfu:eliminar-cancion} & & RD \ref{rdu:datos-almacenados-eliminar-cancion}  & \\
+  RF \ref{rfu:eliminar-autor} & & RD \ref{rdu:datos-almacenados-eliminar-autor} & \\
+  RF \ref{rfu:eliminar-genero} &  & RD \ref{rdu:datos-almacenados-eliminar-genero}  & \\
   RF \ref{rfd:registro-usuario} & RD \ref{rdd:registro-usuario} & RD \ref{rdd:registro-usuario-almacenados} & \\
   RF \ref{rfd:inicio-sesion} & RD \ref{rdd:inicio-sesion} & & \\
   RF \ref{rfd:modificar-dato} &  RD \ref{rdd:modificar-dato} & RD \ref{rdd:modificar-dato-almacenados} & \\
