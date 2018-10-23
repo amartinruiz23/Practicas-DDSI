@@ -263,11 +263,13 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Foto (opcional) (Imagen en formato PNG)
 \item Biografía (opcional) (Serie de hasta 500 caracteres)
 \end{itemize}
+
 \rdd{Datos de inicio de sesión \label{rdd:inicio-sesion}}
 \begin{itemize}
 \item Alias (Una serie de hasta 12 caracteres)
 \item Contraseña (Una serie de entre 7 y 128 caracteres)
 \end{itemize}
+
 \rdd{Datos introducidos para la modificación de un dato personal\label{rdd:modificar-dato}}
 \begin{itemize}
 \item Alias (Una serie de hasta 12 caracteres)
@@ -275,15 +277,18 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Dato antiguo (En el formato correspondiente al dato)
 \item Dato nuevo (En el mismo formato que el dato eliminado)
 \end{itemize}
+
 \rdd{Datos de autenticación para la baja de un usuario \label{rdd:inicio-sesion-baja}}
 \begin{itemize}
 \item Alias (Una serie de hasta 12 caracteres)
 \item Contraseña (Una serie de entre 7 y 128 caracteres)
 \end{itemize}
+
 \rdd{Datos introducidos para acceder al perfil de un usuario \label{rdd:ver-perfil}}
 \begin{itemize}
 \item Alias del usuario (Serie de hasta 12 caracteres).
 \end{itemize}
+
 \refstepcounter{RD}
 
 % Social - datos entrada
@@ -460,6 +465,12 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Biografía (opcional) (Serie de hasta 500 caracteres)
 \end{itemize}
 
+\rdd{Datos manejados de inicio de sesión \label{rdd:inicio-sesion-man}}
+\begin{itemize}
+\item Alias (Una serie de hasta 12 caracteres)
+\item Contraseña (Una serie de entre 7 y 128 caracteres)
+\end{itemize}
+
 \rdd{Datos almacenados ante la modificación de un dato personal\label{rdd:modificar-dato-almacenados}}
 \begin{itemize}
 \item Dato modificado (En el formato correspondiente al dato)
@@ -474,6 +485,18 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Foto (opcional) (Imagen en formato PNG)
   \item Biografía (opcional) (Serie de hasta 500 caracteres)
 \end{itemize}
+
+\rdd{Datos manejados al consultar el perfil de un usuario \label{rdd:ver-perfil-man}}
+\begin{itemize}
+\item Alias (Serie de hasta 12 caracteres)
+\item Foto (Imagen PNG)
+\item Biografía (Serie de hasta 500 caracteres)
+\item Canciones favoritas (Una lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
+\item Canciones pendientes (Una lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
+\item Canciones escuchadas (Una lista formada por identificadores de canciones (Cadena de 16 caracteres numéricos))
+\item Seguidos (Lista de alias de usuarios)
+\end{itemize}
+
 
 \refstepcounter{RD}
 
@@ -769,7 +792,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 \begin{itemize}
 \item El usuario y la contraseña deben coincidir con los almacenados en el sistema.
 \end{itemize}
-(RD \ref{rdd:inicio-sesion}, RF \ref{rfd:inicio-sesion})
+(RD \ref{rdd:inicio-sesion}, RD \ref{rdd:inicio-sesion-man}, RF \ref{rfd:inicio-sesion})
 
 \rsd{Restricciones para modificar un dato personal}
 \begin{itemize}
@@ -789,7 +812,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 \item El alias introducido debe coincidir con algún usuario existente.
 \item Los datos de salida deben existir, en caso de no hacerlo no se mostrarán.
 \end{itemize}
-(RD \ref{rdd:ver-perfil}, RD \ref{rdd:ver-perfil-sal}, RF \ref{rfd:ver-perfil})
+(RD \ref{rdd:ver-perfil}, RD \ref{rdd:ver-perfil-sal}, RD \ref{rdd:ver-perfil-man}, RF \ref{rfd:ver-perfil})
 
 \refstepcounter{RS}
 
@@ -865,8 +888,10 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   %
 
   RD \ref{rdd:registro-usuario-almacenados} & & RF \ref{rfd:registro-usuario} & \\
+  RD \ref{rdd:inicio-sesion-man} & & RF \ref{rfd:inicio-sesion} & \\
   RD \ref{rdd:modificar-dato-almacenados} & & RF \ref{rfd:modificar-dato} & \\
   RD \ref{rdd:eliminar-usuario} & & RF \ref{rfd:dar-baja} & \\
+  RD \ref{rdd:ver-perfil-man} & & RF \ref{rfd:ver-perfil} & \\
   RD \ref{rdt:comentario-man} & & RF \ref{rft:comentar} & \\
   RD \ref{rdt:valoracion-man} & & RF \ref{rft:valorar} & \\
   RD \ref{rdt:escuchadas-man} & & RF \ref{rft:escuchada} & \\
@@ -906,10 +931,10 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RF \ref{rfu:eliminar-autor} & & RD \ref{rdu:datos-almacenados-eliminar-autor} & \\
   RF \ref{rfu:eliminar-genero} &  & RD \ref{rdu:datos-almacenados-eliminar-genero}  & \\
   RF \ref{rfd:registro-usuario} & RD \ref{rdd:registro-usuario} & RD \ref{rdd:registro-usuario-almacenados} & \\
-  RF \ref{rfd:inicio-sesion} & RD \ref{rdd:inicio-sesion} & & \\
+  RF \ref{rfd:inicio-sesion} & RD \ref{rdd:inicio-sesion} & RD \ref{rdd:inicio-sesion-man} & \\
   RF \ref{rfd:modificar-dato} &  RD \ref{rdd:modificar-dato} & RD \ref{rdd:modificar-dato-almacenados} & \\
   RF \ref{rfd:dar-baja} & RD \ref{rdd:inicio-sesion-baja} & RD \ref{rdd:eliminar-usuario} & \\
-  RF \ref{rfd:ver-perfil} & RD \ref{rdd:ver-perfil} & & RD \ref{rdd:ver-perfil-sal} \\
+  RF \ref{rfd:ver-perfil} & RD \ref{rdd:ver-perfil} & RD \ref{rdd:ver-perfil-man} & RD \ref{rdd:ver-perfil-sal} \\
   RF \ref{rft:comentar} & RD \ref{rdt:comentario-ent} & RD \ref{rdt:comentario-man} & \\
   RF \ref{rft:valorar} & RD \ref{rdt:valoracion-ent} & RD \ref{rdt:valoracion-man} & \\
   RF \ref{rft:escuchada} & RD \ref{rdt:escuchadas-ent} & RD \ref{rdt:escuchadas-man} & \\
