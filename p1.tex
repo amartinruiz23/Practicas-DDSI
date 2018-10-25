@@ -542,6 +542,22 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Alias del usuario que seguido (Una serie de hasta 12 caracteres del usuario seguido)
 \end{itemize}
 
+\rdt{Los datos manejados para ver un comentario \label{rdt-ver-comentario-man}}
+\begin{itemize}
+\item Identificador de una canción (Cadena de 16 caracteres numéricos)
+\item Foto del usuario (Imagen en formato PNG)
+\item Texto (Una cadena de hasta 500 caracteres no vacía)
+\end{itemize}
+
+\rdt{Los datos manejados para ver una valoración \label{rdt-ver-valoracion-man}}
+\begin{itemize}
+\item Alias de usuario (una cadena de hasta 12 caracteres)
+\item Identificador de una canciín (Cadena de 16 caracteres numéricos) 
+\item Foto del usuario (imagen en formato PNG)
+\item Valor (un número entero entre 0 y 10)
+\end{itemize}
+
+
 \refstepcounter{RD}
 
 % Búsqueda
@@ -897,6 +913,8 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RD \ref{rdt:escuchadas-man} & & RF \ref{rft:escuchada} & \\
   RD \ref{rdt:pendientes-man} & & RF \ref{rft:pendiente} & \\
   RD \ref{rdt:seguir-man} & & RF \ref{rft:seguir} & \\
+  RD \ref{rdt-ver-comentario-man} & & RF \ref{rft:ver-comentarios} & \\
+  RD \ref{rdt-ver-valoracion-man} & & RF \ref{rft:ver-valoracion} & \\
   RD \ref{rdc:busqueda-man} && RF \ref{rfc:buscar} & \\
   RD \ref{rdc:busqueda-can-man} && RF \ref{rfc:buscar-cancion} & \\
   RD \ref{rdc:busqueda-aut-man} && RF \ref{rfc:buscar-autor} & \\
@@ -940,8 +958,8 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RF \ref{rft:escuchada} & RD \ref{rdt:escuchadas-ent} & RD \ref{rdt:escuchadas-man} & \\
   RF \ref{rft:pendiente} & RD \ref{rdt:pendientes-ent} & RD \ref{rdt:pendientes-man} & \\
   RF \ref{rft:favorita} & RD \ref{rdt:favoritas-ent} & RD \ref{rdt:favoritas-man} & \\
-  RF \ref{rft:ver-comentarios} & RD \ref{rdt:id-cancion} & & RD \ref{rdt:comentario-sal}\\
-  RF \ref{rft:ver-valoracion} & RD \ref{rdt:ver-val-ent} & & RD \ref{rdt:valoracion-sal} \\
+  RF \ref{rft:ver-comentarios} & RD \ref{rdt:id-cancion} & RD \ref{rdt-ver-comentario-man} & RD \ref{rdt:comentario-sal}\\
+  RF \ref{rft:ver-valoracion} & RD \ref{rdt:ver-val-ent} & RD \ref{rdt-ver-valoracion-man} & RD \ref{rdt:valoracion-sal} \\
   RF \ref{rft:seguir} & RD \ref{rdt:seguir-ent} & RD \ref{rdt:seguir-man} & \\
   RF \ref{rfc:buscar} & RD \ref{rdc:busqueda-ent} & & RD \ref{rdc:busqueda-sal} \\
   RF \ref{rfc:buscar-cancion} & RD \ref{rdc:busqueda-canc-ent} & & RD \ref{rdc:busqueda-canc-sal} \\
