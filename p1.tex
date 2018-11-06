@@ -142,9 +142,7 @@
 \usepackage{tabularx}
 \usepackage{ltablex}
 
-\title{Práctica 1. Descripción del sistema y especificación de requisitos \\\large Diseño y Desarrollo de Sistemas de Información}
-\author{José María Martín Luque (Canciones) \and Luis Antonio Ortega Andrés (Usuarios) \and Sofía Almeida Bruno (Social) \and Antonio Martín Ruiz (Búsqueda)  }
-
+\title{Práctica 1. Descripción del sistema y especificación de requisitos }
 \begin{document}
 
 \maketitle
@@ -186,7 +184,7 @@ Se pueden buscar canciones en el sistema por su título, autor, género, álbum 
 Existe un sistema de sugerencias consistente en búsquedas programadas automáticamente en función de las canciones que un usuario y sus seguidos hayan añadido a favoritos y valorado, teniendo en cuenta la puntuación dada.
 
 \section{Requisitos de datos}
-\subsection{Datos de entrada}
+\subsubsection{Datos de entrada}
 
 % Música
 
@@ -375,7 +373,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Procedencia (opcional)
 \end{itemize}
 
-\subsection{Datos manejados}
+\subsubsection{Datos manejados}
 \setcounter{RD}{1}
 
 % Música
@@ -573,7 +571,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Identificador de un autor (Cadena numérica de 16 caracteres)
   \item Nombre de género (Cadena de hasta 20 caracteres)
 \end{itemize}
-\subsection{Datos de salida}
+\subsubsection{Datos de salida}
 \setcounter{RD}{1}
 
 \refstepcounter{RD}
@@ -851,7 +849,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 
 \section{Validación cruzada de requisitos}
 
-\subsection{Validación cruzada de requisitos de datos}
+\subsubsection{Validación cruzada de requisitos de datos}
 \keepXColumns
 \begin{tabularx}{\linewidth}{l|XXX}
   RD & Entrada & Manejo & Salida \\
@@ -918,7 +916,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 
   %
 
-\subsection{Validación cruzada de requisitos funcionales}
+\subsubsection{Validación cruzada de requisitos funcionales}
 \begin{tabularx}{\linewidth}{l|XXX}
   RF & Entrada & Manejo & Salida \\
   RF \ref{rfu:añadir-cancion} & RD \ref{rdu:datos-nueva-cancion} & RD \ref{rdu:datos-almacenados-nueva-cancion} & \\
