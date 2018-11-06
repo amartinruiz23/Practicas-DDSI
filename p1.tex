@@ -1,5 +1,5 @@
 
-\section{Descripción del sistema} % (fold)
+\subsection{Descripción del sistema} % (fold)
 
 El sistema es una red social para gestionar y compartir opiniones sobre música. Incluye un registro de la música que el usuario ha escuchado así como un sistema de sugerencias generadas a partir de sus escuchas y las de las personas a las que sigue.
 
@@ -35,7 +35,7 @@ Se pueden buscar canciones en el sistema por su título, autor, género, álbum 
 
 Existe un sistema de sugerencias consistente en búsquedas programadas automáticamente en función de las canciones que un usuario y sus seguidos hayan añadido a favoritos y valorado, teniendo en cuenta la puntuación dada.
 
-\section{Requisitos de datos}
+\subsection{Requisitos de datos}
 \subsubsection{Datos de entrada}
 
 % Música
@@ -532,7 +532,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Géneros relacionados (Lista de nombres de géneros)
 \end{itemize}
 
-\section{Requisitos funcionales}
+\subsection{Requisitos funcionales}
 
 \rfu{Añadir una canción\label{rfu:añadir-cancion}}
 Esta función registra una canción en el sistema (RD \ref{rdu:datos-almacenados-nueva-cancion}), a partir de los datos proporcionados por el usuario (RD \ref{rdu:datos-nueva-cancion}).
@@ -624,7 +624,7 @@ Esta función devuelve canciones, géneros y autores relacionados (RD \ref{rdc:b
 \rfc{Realizar una sugerencia \label{rfc:sugerir}}
 Esta función realiza sugerencias como búsquedas automáticas a partir de canciones, artistas y géneros (RD \ref{rdc:sugerencia-man}) y devuelve canciones, artistas y géneros relacionados (RD \ref{rdc:sugerencia-sal}).
 
-\section{Restricciones semánticas}
+\subsection{Restricciones semánticas}
 
 %\rsu{Restricciones al añadir una canción}
 %\begin{itemize}
@@ -740,7 +740,7 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
 \end{itemize}
 (RD \ref{rdt:escuchadas-man}, RF \ref{rfc:sugerir})
 
-\section{Validación cruzada de requisitos}
+\subsection{Validación cruzada de requisitos}
 
 \subsubsection{Validación cruzada de requisitos de datos}
 \keepXColumns
