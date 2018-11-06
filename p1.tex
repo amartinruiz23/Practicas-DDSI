@@ -1,151 +1,3 @@
-\documentclass[
-  12pt,
-  a4paper,
-  DIV=12,
-  spanish,
-]{scrartcl}
-
-\linespread{1.3}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1em}
-
-\usepackage{babel}
-
-%% Fuentes personalizadas para utilizar con XeTeX
-\usepackage{unicode-math}
-\setmainfont[
-  Path = ./fonts/,
-  UprightFont = *-Regular,
-  ItalicFont = *-Italic,
-  BoldFont = *-Bold,
-  BoldItalicFont = *-BoldItalic,
-]{FiraSans}
-\setsansfont[
-  Path = ./fonts/,
-  UprightFont = *-Regular,
-  ItalicFont = *-Italic,
-  BoldFont = *-Bold,
-  BoldItalicFont = *-BoldItalic,
-]{FiraSans}
-\setmathfont[
-  Path = ./fonts/,
-]{FiraMath-Regular}
-\setmathfont[
-  range={it/{latin, Latin}},
-  math-style=TeX,
-  Path = ./fonts/,
-]{FiraSans-Italic}
-
-\usepackage[activate={true,nocompatibility},final,tracking=true,factor=1100,stretch=10,shrink=10]{microtype}
-\SetTracking{encoding={*}, shape=sc}{0}
-
-\usepackage{enumitem}
-\setlist[itemize]{leftmargin=*, noitemsep, topsep=0pt}
-\setlist[enumerate]{leftmargin=*}
-
-\usepackage{changepage}
-
-%% estos creo que no los usados... los dejo por si acaso
-\newcommand{\term}[2]{\textbf{#1}\quad#2\\}
-\newcounter{ObjCounter}
-\newcommand{\obj}[1]{\addtocounter{ObjCounter}{1}\textbf{\rmfamily OBJ-\theObjCounter}\quad#1\\}
-
-% Contadores requisitos funcionales fs
-\newcounter{RF}
-\setcounter{RF}{1}
-\newcounter{RFu}[RF]
-\setcounter{RFu}{0}
-\renewcommand{\theRFu}{\theRF.\arabic{RFu}}
-\newcommand{\rfu}[1]{\noindent%
-  \refstepcounter{RFu}\textbf{RF \theRFu}\quad #1\\%
-}
-\newcounter{RFd}[RF]
-\setcounter{RFd}{0}
-\renewcommand{\theRFd}{\theRF.\arabic{RFd}}
-\newcommand{\rfd}[1]{\noindent%
-  \refstepcounter{RFd}\textbf{RF \theRFd}\quad #1\\%
-}
-\newcounter{RFt}[RF]
-\setcounter{RFt}{0}
-\renewcommand{\theRFt}{\theRF.\arabic{RFt}}
-\newcommand{\rft}[1]{\noindent%
-  \refstepcounter{RFt}\textbf{RF \theRFt}\quad #1\\%
-}
-\newcounter{RFc}[RF]
-\setcounter{RFc}{0}
-\renewcommand{\theRFc}{\theRF.\arabic{RFc}}
-\newcommand{\rfc}[1]{\noindent%
-  \refstepcounter{RFc}\textbf{RF \theRFc}\quad #1\\%
-}
-
-
-% Contadores requisitos de datos
-\newcounter{RD}
-\setcounter{RD}{1}
-\newcounter{RDu}
-\setcounter{RDu}{0}
-\renewcommand{\theRDu}{\theRD.\arabic{RDu}}
-\newcommand{\rdu}[1]{\noindent%
-  \refstepcounter{RDu}\textbf{RD \theRDu}\quad #1%
-}
-\newcounter{RDd}
-\setcounter{RDd}{0}
-\renewcommand{\theRDd}{\theRD.\arabic{RDd}}
-\newcommand{\rdd}[1]{\noindent%
-  \refstepcounter{RDd}\textbf{RD \theRDd}\quad #1%
-}
-\newcounter{RDt}
-\setcounter{RDt}{0}
-\renewcommand{\theRDt}{\theRD.\arabic{RDt}}
-\newcommand{\rdt}[1]{\noindent%
-  \refstepcounter{RDt}\textbf{RD \theRDt}\quad #1%
-}
-\newcounter{RDc}
-\setcounter{RDc}{0}
-\renewcommand{\theRDc}{\theRD.\arabic{RDc}}
-\newcommand{\rdc}[1]{\noindent%
-  \refstepcounter{RDc}\textbf{RD \theRDc}\quad #1%
-}
-
-% Contadores restricciones semánticas
-\newcounter{RS}
-\setcounter{RS}{1}
-\newcounter{RSu}[RS]
-\setcounter{RSu}{0}
-\renewcommand{\theRSu}{\theRS.\arabic{RSu}}
-\newcommand{\rsu}[1]{\noindent%
-  \refstepcounter{RSu}\textbf{RS \theRSu}\quad #1%
-}
-\newcounter{RSd}[RS]
-\setcounter{RSd}{0}
-\renewcommand{\theRSd}{\theRS.\arabic{RSd}}
-\newcommand{\rsd}[1]{\noindent%
-  \refstepcounter{RSd}\textbf{RS \theRSd}\quad #1%
-}
-\newcounter{RSt}[RS]
-\setcounter{RSt}{0}
-\renewcommand{\theRSt}{\theRS.\arabic{RSt}}
-\newcommand{\rst}[1]{\noindent%
-  \refstepcounter{RSt}\textbf{RS \theRSt}\quad #1%
-}
-\newcounter{RSc}[RS]
-\setcounter{RSc}{0}
-\renewcommand{\theRSc}{\theRS.\arabic{RSc}}
-\newcommand{\rsc}[1]{\noindent%
-  \refstepcounter{RSc}\textbf{RS \theRSc}\quad #1%
-}
-
-
-
-\usepackage{array}
-\usepackage{adjustbox}
-\usepackage{tabularx}
-\usepackage{ltablex}
-
-\title{Práctica 1. Descripción del sistema y especificación de requisitos }
-\begin{document}
-
-\maketitle
 
 \section{Descripción del sistema} % (fold)
 
@@ -227,6 +79,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \begin{itemize}
   \item Dato antiguo (En el formato correspondiente al dato)
   \item Dato nuevo (En el mismo formato que el dato eliminado)
+  \item Identificador (Cadena de 16 caracteres numéricos)
   \item Alias (Una serie de hasta 12 caracteres)
   \item Contraseña (Una serie de entre 7 y 128 caracteres)
 \end{itemize}
@@ -235,6 +88,7 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \begin{itemize}
   \item Dato antiguo (En el formato correspondiente al dato)
   \item Dato nuevo (En el mismo formato que el dato eliminado)
+  \item Nombre (Cadena de hasta 20 caracteres)
   \item Alias (Una serie de hasta 12 caracteres)
   \item Contraseña (Una serie de entre 7 y 128 caracteres)
 \end{itemize}
@@ -244,6 +98,29 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \begin{itemize}
   \item Dato antiguo (En el formato correspondiente al dato)
 \item Dato nuevo (En el mismo formato que el dato eliminado)
+\item Identificador (Cadena de 16 caracteres numéricos)
+  \item Alias (Una serie de hasta 12 caracteres)
+  \item Contraseña (Una serie de entre 7 y 128 caracteres)
+\end{itemize}
+
+\rdu{Datos utilizados al eliminar una canción \label{rdu:datos-eliminar-cancion}}
+\begin{itemize}
+  \item Identificador (Cadena de 16 caracteres numéricos)
+  \item Alias (Una serie de hasta 12 caracteres)
+  \item Contraseña (Una serie de entre 7 y 128 caracteres)
+\end{itemize}
+
+\rdu{Datos utilizados al eliminar un género \label{rdu:datos-eliminar-genero}}
+\begin{itemize}
+  \item Nombre (Cadena de hasta 20 caracteres)
+  \item Alias (Una serie de hasta 12 caracteres)
+  \item Contraseña (Una serie de entre 7 y 128 caracteres)
+\end{itemize}
+
+\rdu{Datos utilizados al eliminar un autor\label{rdu:datos-eliminar-autor}}
+
+\begin{itemize}
+  \item Identificador (Cadena de 16 caracteres numéricos)
   \item Alias (Una serie de hasta 12 caracteres)
   \item Contraseña (Una serie de entre 7 y 128 caracteres)
 \end{itemize}
@@ -406,12 +283,12 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Identificador de un autor (cadena numérica de 16 caracteres)
 \end{itemize}
 
-\rdd{Datos almacenados al modificar un dato de una canción\label{rdu:datos-almacenados-modificar-cancion}}
+\rdu{Datos almacenados al modificar un dato de una canción\label{rdu:datos-almacenados-modificar-cancion}}
 \begin{itemize}
 \item Dato modificado (En el formato correspondiente al dato)
 \end{itemize}
 
-\rdd{Datos eliminados al eliminar una canción \label{rdu:datos-almacenados-eliminar-cancion}}
+\rdu{Datos eliminados al eliminar una canción \label{rdu:datos-almacenados-eliminar-cancion}}
 \begin{itemize}
   \item Título (Una cadena no vacía de hasta 50 caracteres)
   \item Fecha (8 números en formado dd/mm/aaaa)
@@ -422,23 +299,23 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
   \item Identificador (Cadena de 16 caracteres numéricos)
 \end{itemize}
 
-\rdd{Datos almacenados al modificar un dato de un género\label{rdu:datos-almacenados-modificar-genero}}
+\rdu{Datos almacenados al modificar un dato de un género\label{rdu:datos-almacenados-modificar-genero}}
 \begin{itemize}
 \item Dato modificado (En el formato correspondiente al dato)
 \end{itemize}
 
-\rdd{Datos eliminados al eliminar un género \label{rdu:datos-almacenados-eliminar-genero}}
+\rdu{Datos eliminados al eliminar un género \label{rdu:datos-almacenados-eliminar-genero}}
 \begin{itemize}
   \item Nombre (Cadena de hasta 20 caracteres)
   \item Descripción (Cadena de hasta 500 caracteres)
 \end{itemize}
 
-\rdd{Datos almacenados al modificar un dato de un autor\label{rdu:datos-almacenados-modificar-autor}}
+\rdu{Datos almacenados al modificar un dato de un autor\label{rdu:datos-almacenados-modificar-autor}}
 \begin{itemize}
 \item Dato modificado (En el formato correspondiente al dato)
 \end{itemize}
 
-\rdd{Datos eliminados al eliminar un autor \label{rdu:datos-almacenados-eliminar-autor}}
+\rdu{Datos eliminados al eliminar un autor \label{rdu:datos-almacenados-eliminar-autor}}
 \begin{itemize}
   \item Nombre (Cadena de hasta 30 caracteres)
   \item Procedencia (opcional) (Dos listas de 20 caracteres alfanuméricos)
@@ -539,6 +416,22 @@ Existe un sistema de sugerencias consistente en búsquedas programadas automáti
 \item Alias del usuario que sigue (Una serie de hasta 12 caracteres del usuario que sigue)
 \item Alias del usuario que seguido (Una serie de hasta 12 caracteres del usuario seguido)
 \end{itemize}
+
+\rdt{Los datos manejados para ver un comentario \label{rdt-ver-comentario-man}}
+\begin{itemize}
+\item Identificador de una canción (Cadena de 16 caracteres numéricos)
+\item Foto del usuario (Imagen en formato PNG)
+\item Texto (Una cadena de hasta 500 caracteres no vacía)
+\end{itemize}
+
+\rdt{Los datos manejados para ver una valoración \label{rdt-ver-valoracion-man}}
+\begin{itemize}
+\item Alias de usuario (una cadena de hasta 12 caracteres)
+\item Identificador de una canciín (Cadena de 16 caracteres numéricos) 
+\item Foto del usuario (imagen en formato PNG)
+\item Valor (un número entero entre 0 y 10)
+\end{itemize}
+
 
 \refstepcounter{RD}
 
@@ -703,10 +596,10 @@ Esta función registra una canción pendiente dentro del sistema (RD \ref{rdt:pe
 Esta función registra una canción favorita dentro del sistema (RD \ref{rdt:favoritas-man}), a partir de los datos de canción pendiente proporcionada por el usuario (RD \ref{rdt:favoritas-ent}).
 
 \rft{Ver comentarios\label{rft:ver-comentarios}}
-Esta función proporciona los comentarios de una canción (RD \ref{rdt:comentario-sal}), a partir de un identificador de canción (RD \ref{rdt:id-cancion}).
+Esta función proporciona los comentarios de una canción (RD \ref{rdt:comentario-sal}), a partir de un identificador de canción (RD \ref{rdt:id-cancion}). Para ello, se accede al requisito RD \ref{rdt:comentario-man}.
 
 \rft{Ver valoración\label{rft:ver-valoracion}}
-Esta función devuelve la valoración que un usuario ha dado a una canción (RD \ref{rdt:valoracion-sal}), a partir del usuario y la canción (RD \ref{rdt:ver-val-ent}).
+Esta función devuelve la valoración que un usuario ha dado a una canción (RD \ref{rdt:valoracion-sal}), a partir del usuario y la canción (RD \ref{rdt:ver-val-ent}). Para ello, se accede al requisito RD \ref{rdt:valoracion-man}.
 
 \rft{Seguir\label{rft:seguir}}
 Esta función registra que un usuario sigue a otro (RD \ref{rdt:seguir-man}), a partir de los datos proporcionados por el primero (RD \ref{rdt:seguir-ent}).
@@ -895,6 +788,8 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RD \ref{rdt:escuchadas-man} & & RF \ref{rft:escuchada} & \\
   RD \ref{rdt:pendientes-man} & & RF \ref{rft:pendiente} & \\
   RD \ref{rdt:seguir-man} & & RF \ref{rft:seguir} & \\
+  RD \ref{rdt-ver-comentario-man} & & RF \ref{rft:ver-comentarios} & \\
+  RD \ref{rdt-ver-valoracion-man} & & RF \ref{rft:ver-valoracion} & \\
   RD \ref{rdc:busqueda-man} && RF \ref{rfc:buscar} & \\
   RD \ref{rdc:busqueda-can-man} && RF \ref{rfc:buscar-cancion} & \\
   RD \ref{rdc:busqueda-aut-man} && RF \ref{rfc:buscar-autor} & \\
@@ -938,8 +833,8 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RF \ref{rft:escuchada} & RD \ref{rdt:escuchadas-ent} & RD \ref{rdt:escuchadas-man} & \\
   RF \ref{rft:pendiente} & RD \ref{rdt:pendientes-ent} & RD \ref{rdt:pendientes-man} & \\
   RF \ref{rft:favorita} & RD \ref{rdt:favoritas-ent} & RD \ref{rdt:favoritas-man} & \\
-  RF \ref{rft:ver-comentarios} & RD \ref{rdt:id-cancion} & & RD \ref{rdt:comentario-sal}\\
-  RF \ref{rft:ver-valoracion} & RD \ref{rdt:ver-val-ent} & & RD \ref{rdt:valoracion-sal} \\
+  RF \ref{rft:ver-comentarios} & RD \ref{rdt:id-cancion} & RD \ref{rdt-ver-comentario-man} & RD \ref{rdt:comentario-sal}\\
+  RF \ref{rft:ver-valoracion} & RD \ref{rdt:ver-val-ent} & RD \ref{rdt-ver-valoracion-man} & RD \ref{rdt:valoracion-sal} \\
   RF \ref{rft:seguir} & RD \ref{rdt:seguir-ent} & RD \ref{rdt:seguir-man} & \\
   RF \ref{rfc:buscar} & RD \ref{rdc:busqueda-ent} & & RD \ref{rdc:busqueda-sal} \\
   RF \ref{rfc:buscar-cancion} & RD \ref{rdc:busqueda-canc-ent} & & RD \ref{rdc:busqueda-canc-sal} \\
@@ -948,4 +843,3 @@ Esta función realiza sugerencias como búsquedas automáticas a partir de canci
   RF \ref{rfc:sugerir} & & RD \ref{rdc:sugerencia-man} & RD \ref{rdc:sugerencia-sal}\\
 \end{tabularx}
 
-\end{document}
