@@ -1,4 +1,4 @@
-\select@language {spanish}
+\babel@toc {spanish}{}
 \contentsline {section}{\numberline {1}Descripción del sistema y especificación de requisitos}{3}
 \contentsline {subsection}{\numberline {1.1}Descripción del sistema}{3}
 \contentsline {subsection}{\numberline {1.2}Requisitos de datos}{5}
@@ -10,10 +10,10 @@
 \contentsline {subsection}{\numberline {1.5}Validación cruzada de requisitos}{21}
 \contentsline {subsubsection}{\numberline {1.5.1}Validación cruzada de requisitos de datos}{21}
 \contentsline {subsubsection}{\numberline {1.5.2}Validación cruzada de requisitos funcionales}{22}
-\contentsline {section}{\numberline {2}Análisis y diseño conjunto de datos y funciones}{24}
-\contentsline {subsection}{\numberline {2.1}Esquema de caja negra}{24}
-\contentsline {subsection}{\numberline {2.2}Esquema armazón}{24}
-\contentsline {subsection}{\numberline {2.3}Refinamientos de los subsistemas}{24}
-\contentsline {subsection}{\numberline {2.4}Esquemas externos}{24}
-\contentsline {subsection}{\numberline {2.5}Diagrama conceptual}{24}
-\contentsline {subsection}{\numberline {2.6}Modelo entidad/relación}{24}
+\contentsline {section}{\numberline {2}Análisis y diseño conjunto de datos y funciones}{25}
+\contentsline {subsection}{\numberline {2.1}Esquema de caja negra}{25}
+\contentsline {subsection}{\numberline {2.2}Esquema armazón}{27}
+\contentsline {subsection}{\numberline {2.3}Refinamientos de los subsistemas}{28}
+\contentsline {subsection}{\numberline {2.4}Esquemas externos}{32}
+\contentsline {subsection}{\numberline {2.5}Diagrama conceptual}{35}
+\contentsline {subsection}{\numberline {2.6}Modelo entidad/relación}{38}
