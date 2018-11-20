@@ -43,6 +43,18 @@ create table favoritas(
   PRIMARY KEY (alias, identificador)
 );
 
+create table pendiente(
+  alias VARCHAR (12) REFERENCES usuario (alias),
+  identificador VARCHAR (16) REFERENCES cancion (identificador),
+  PRIMARY KEY (alias, identificador)
+);
+
+create table escuchadas(
+  alias VARCHAR (12) REFERENCES usuario (alias),
+  identificador VARCHAR (16) REFERENCES cancion (identificador),
+  PRIMARY KEY (alias, identificador)
+);
+
 create table comenta(
   alias VARCHAR (12) REFERENCES usuario (alias),
   identificador VARCHAR (16) REFERENCES cancion (identificador),
