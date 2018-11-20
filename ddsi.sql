@@ -132,3 +132,16 @@ create table aniade_genero(
   alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
   PRIMARY_KEY (nombre, alias)
 );
+
+create table modifica_genero(
+  nombre VARCHAR(20) REFERENCES genero(nombre),
+  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
+  dato
+  PRIMARY_KEY (nombre, alias)
+);
+
+create table elimina_genero(
+  nombre VARCHAR(20) REFERENCES genero(nombre),
+  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
+  PRIMARY_KEY (nombre, alias)
+);
