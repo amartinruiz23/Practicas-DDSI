@@ -86,6 +86,11 @@ create table aniade_genero(
   PRIMARY_KEY (nombre, alias)
 );
 
+create table usuario_privilegiado(
+  alias VARCHAR(16),
+  PRIMARY_KEY (alias)
+);
+
 create table moderador(
   alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
   PRIMARY_KEY (alias)
@@ -95,12 +100,6 @@ create table administrador(
   alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
   PRIMARY_KEY (alias)
 );
-
-create table usuario_privilegiado(
-  alias VARCHAR(16),
-  PRIMARY_KEY (alias)
-);
-
 
 
 
