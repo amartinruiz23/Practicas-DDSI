@@ -80,11 +80,6 @@ create table autoria(
   PRIMARY KEY (id_cancion, id_autor)
 );
 
-create table aniade_genero(
-  nombre VARCHAR(20) REFERENCES genero(nombre),
-  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
-  PRIMARY_KEY (nombre, alias)
-);
 
 create table usuario_privilegiado(
   alias VARCHAR(16),
@@ -130,4 +125,10 @@ create table modifica_cancion(
   alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
   dato ???
   PRIMARY_KEY (identificador, alias)
+);
+
+create table aniade_genero(
+  nombre VARCHAR(20) REFERENCES genero(nombre),
+  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
+  PRIMARY_KEY (nombre, alias)
 );
