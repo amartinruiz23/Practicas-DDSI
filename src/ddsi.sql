@@ -1,6 +1,6 @@
 create table usuario (
   alias VARCHAR (12) PRIMARY KEY,
-  contrasenia VARCHAR (128),
+  contrasenia VARCHAR (128) check (length(contrasenia)),
   correo_electronico VARCHAR (128),
   foto BLOB,
   biografia VARCHAR (500),
