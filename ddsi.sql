@@ -24,6 +24,7 @@ create table genero(
 
 create table cancion(
   identificador VARCHAR (16) PRIMARY KEY,
+  titulo VARCHAR (50)
   fecha DATE,
   autor VARCHAR (30),
   genero VARCHAR (20),
@@ -75,11 +76,10 @@ create table pertenencia(
 );
 
 create table autoria(
-  id_cancion VARCHAR (16) REFERENCES cancion(identificador),
-  id_autor VARCHAR (16) REFERENCES autor(identificador),
+  id_cancion VARCHAR (16) REFERENCES cancion (identificador),
+  id_autor VARCHAR (16) REFERENCES autor (identificador),
   PRIMARY KEY (id_cancion, id_autor)
 );
-
 
 create table usuario_privilegiado(
   alias VARCHAR(16),
@@ -87,61 +87,11 @@ create table usuario_privilegiado(
 );
 
 create table moderador(
-  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
+  alias VARCHAR(16) REFERENCES usuario_privilegiado (alias),
   PRIMARY_KEY (alias)
 );
 
 create table administrador(
   alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
   PRIMARY_KEY (alias)
-);
-
-
-
-
---- a parte ---
-
-create table aniade_cancion(
-  identificador VARCHAR(16) REFERENCES cancion(identificador),
-  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
-  PRIMARY_KEY (identificador, alias)
-);
-
-create table modifica_cancion(
-  identificador VARCHAR(16) REFERENCES cancion(identificador),
-  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
-  dato ???
-  PRIMARY_KEY (identificador, alias)
-);
-
-create table aniade_cancion(
-  identificador VARCHAR(16) REFERENCES cancion(identificador),
-  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
-  PRIMARY_KEY (identificador, alias)
-);
-
-create table modifica_cancion(
-  identificador VARCHAR(16) REFERENCES cancion(identificador),
-  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
-  dato ???
-  PRIMARY_KEY (identificador, alias)
-);
-
-create table aniade_genero(
-  nombre VARCHAR(20) REFERENCES genero(nombre),
-  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
-  PRIMARY_KEY (nombre, alias)
-);
-
-create table modifica_genero(
-  nombre VARCHAR(20) REFERENCES genero(nombre),
-  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
-  dato
-  PRIMARY_KEY (nombre, alias)
-);
-
-create table elimina_genero(
-  nombre VARCHAR(20) REFERENCES genero(nombre),
-  alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
-  PRIMARY_KEY (nombre, alias)
 );
