@@ -35,6 +35,11 @@
   math-style=TeX,
   Path = ./fonts/,
 ]{FiraSans-Italic}
+\setmonofont[
+  Path = ./fonts/,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+]{FiraCode}
 
 \usepackage[activate={true,nocompatibility},final,tracking=true,factor=1100,stretch=10,shrink=10]{microtype}
 \SetTracking{encoding={*}, shape=sc}{0}
@@ -142,6 +147,16 @@
 \usepackage{tabularx}
 \usepackage{ltablex}
 \usepackage{float}
+
+\usepackage{listings}
+
+\lstset{
+numbers=left,
+numberstyle=\small\ttfamily,
+basicstyle=\ttfamily,
+showstringspaces=false,            %
+breaklines=true,
+}
 
 \title{Práctica DDSI}
 \author{José María Martín Luque (Canciones) \and Luis Antonio Ortega Andrés (Usuarios) \and Sofía Almeida Bruno (Social) \and Antonio Martín Ruiz (Búsqueda)  }
