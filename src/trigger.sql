@@ -22,4 +22,22 @@ BEGIN
   IF NEW.correo_electronico NOT LIKE '_%@_%.__%' THEN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Formato de email no valido';
   END IF;
-END; 
+END;
+
+-- Trigger de Sofía Almeida Bruno
+create trigger ponerComentario
+  before insert on comenta
+  for each row
+begin
+
+declare
+relacionados VARCHAR (12);
+
+select alias into relacionados from escuchadas
+  where alias = NEW.alias  AND identificador = NEW.identificador;
+
+if relacionados IS NULL then
+   SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se pueden añadir comentarios si no se ha escuchado la canción';
+end if;
+end; 
+
