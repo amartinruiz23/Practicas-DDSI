@@ -24,7 +24,7 @@ create table genero(
 
 create table cancion(
   identificador VARCHAR (16) PRIMARY KEY,
-  titulo VARCHAR (50)
+  titulo VARCHAR (50),
   fecha DATE,
   autor VARCHAR (30),
   genero VARCHAR (20),
@@ -83,15 +83,15 @@ create table autoria(
 
 create table usuario_privilegiado(
   alias VARCHAR(16),
-  PRIMARY_KEY (alias)
+  PRIMARY KEY (alias)
 );
 
 create table moderador(
   alias VARCHAR(16) REFERENCES usuario_privilegiado (alias),
-  PRIMARY_KEY (alias)
+  PRIMARY KEY (alias)
 );
 
 create table administrador(
   alias VARCHAR(16) REFERENCES usuario_privilegiado(alias),
-  PRIMARY_KEY (alias)
+  PRIMARY KEY (alias)
 );
