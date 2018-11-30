@@ -1,7 +1,9 @@
 -- Trigger de José María Martín Luque
-CREATE TRIGGER crear_cancion
+delimiter //
+CREATE TRIGGER crearCancion
   BEFORE INSERT ON cancion
   FOR EACH ROW
+  
 BEGIN
   IF NEW.autor NOT IN (
 	  SELECT identificador FROM autor
@@ -12,19 +14,23 @@ BEGIN
   ) THEN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La canción añadida debe tener un autor y género de entre los existentes';
   END IF;
-END; 
+END;//
+delimiter ;
 
 -- Trigger de Luis Antonio Ortega Andrés
-CREATE TRIGGER email.usuario
+delimiter //
+CREATE TRIGGER emailUsuario
   BEFORE INSERT ON usuario
   FOR EACH ROW
 BEGIN
   IF NEW.correo_electronico NOT LIKE '_%@_%.__%' THEN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Formato de email no valido';
   END IF;
-END;
+END;//
+delimiter ;
 
 -- Trigger de Sofía Almeida Bruno
+delimiter //
 create trigger ponerComentario
   before insert on comenta
   for each row
@@ -39,5 +45,19 @@ select alias into relacionados from escuchadas
 if relacionados IS NULL then
    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se pueden añadir comentarios si no se ha escuchado la canción';
 end if;
-end; 
+end;//
+delimiter ;
 
+-- Trigger de Antonio Martín Ruiz
+DELIMITER $
+CREATE TRIGGER compruebafecha
+BEFORE INSERT ON autor
+FOR EACH ROW 
+BEGIN
+IF (DATEDIFF(NEW.comienzo_actividad,CURDATE()) >= 0 )
+THEN
+SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La fecha de comienzo debe estar en el pasado';
+END IF;
+END;$
+
+DELIMITER ;
