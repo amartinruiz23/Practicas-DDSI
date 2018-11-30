@@ -4,6 +4,13 @@ En el modelo entidad/relación, se elimina el atributo ``Género relacionados'' 
 
 \subsection{Diseño lógico}
 
+El siguiente diagrama es el paso a tablas de nuestro modelo entidad/relación disponible en el apartado anterior.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.9]{diagramas/paso_a_tablas.pdf}
+\end{figure}
+
 \subsection{Diseño físico}
 
 A continuación se exponen las secuencias SQL necesarias para la creación de todas las tablas del sistema.
@@ -14,6 +21,15 @@ A continuación se exponen las secuencias SQL necesarias para la creación de to
 
 A continuación se exponen los disparadores creados por cada uno de los integrantes del grupo.
 
-\subsection{Subsistema de música}
+\subsubsection{Subsistema de música}
 
-\lstinputlisting[language=SQL]{src/trigger.sql} 
+\lstinputlisting[language=SQL, firstline=1, lastline=18]{src/trigger.sql} 
+\lstinputlisting[language=SQL, firstline=51, lastline=63]{src/trigger.sql}
+
+\subsubsection{Subsistema de usuarios}
+
+\lstinputlisting[language=SQL, firstline=20, lastline=30]{src/trigger.sql} 
+
+\subsubsection{Subsistema social}
+
+\lstinputlisting[language=SQL, firstline=32, lastline=49]{src/trigger.sql} 
