@@ -1,6 +1,4 @@
 -- Trigger de José María Martín Luque
--- Comprueba que la canción añadida tiene como autor y
--- género uno de los existentes
 delimiter //
 CREATE TRIGGER crearCancion
   BEFORE INSERT ON cancion
@@ -32,8 +30,6 @@ END;//
 delimiter ;
 
 -- Trigger de Sofía Almeida Bruno
--- Comprueba que un usuario ha escuchado una 
--- canción para permitir comentar sobre ella
 delimiter //
 create trigger ponerComentario
   before insert on comenta
