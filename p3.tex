@@ -2,6 +2,8 @@
 
 En el modelo entidad/relación, se elimina el atributo ``Género relacionados'' de la entidad ``Autor'' y se añade una relación entre esta entidad y la entidad ``Género''. Además, se añade una relación de herencia entre ``Usuario'' y ``Usuario con privilegios''. También se eliminan las relaciones ``Añadir'', ``Modificar'' y ``Borrar'', ya que solo serían necesarias si quisiéramos almacenar qué usuario almacena, modifica o borra una canción determinada. Consideramos que esta información no es propia de nuestro sistema y por la complejidad que implica, decidimos eliminarlas.
 
+Se ha añadido una nueva restriccion semántica en el subsistema de usuarios a la hora de registrar uno nuevo, de forma que el disparador corresponda a parte de esta restricción.
+
 \subsection{Diseño lógico}
 
 El siguiente diagrama es el paso a tablas de nuestro modelo entidad/relación disponible en el apartado anterior.
@@ -28,7 +30,7 @@ A continuación se exponen los disparadores creados por cada uno de los integran
 
 \subsubsection{Subsistema de usuarios}
 
-El disparador de usuario comprueba que al insertar un usuario en la base de datos, el formato del campo ``correo electronico'' sea correcto.
+El disparador de usuario comprueba que al insertar un usuario en la base de datos, el formato del campo ``correo electronico'' sea correcto. Corresponde a una parte de la restricción semántica 2.1 (Restricciones para registrar un usuario).
 \lstinputlisting[language=SQL, firstline=20, lastline=30]{src/trigger.sql} 
 
 \subsubsection{Subsistema social}
