@@ -25,16 +25,16 @@ A continuación se exponen los disparadores creados por cada uno de los integran
 
 \subsubsection{Subsistema de música}
 
-El primer trigger comprueba que la canción añadida tiene como autor y género uno de los existentes. El segundo, que la fecha de comienzo de actividad de un autor es anterior al presente.
+El primer trigger comprueba que la canción añadida tiene como autor y género uno de los existentes, RS \ref{rsu:aniadir-cancion}. El segundo, que la fecha de comienzo de actividad de un autor es anterior al presente, RS \ref{rsu:aniadir-autor}.
 
 \lstinputlisting[language=SQL, firstline=1, lastline=18]{src/trigger.sql} 
 \lstinputlisting[language=SQL, firstline=51, lastline=63]{src/trigger.sql}
 
 \subsubsection{Subsistema de usuarios}
 
-El disparador de usuario comprueba que al insertar un usuario en la base de datos, el formato del campo ``correo electronico'' sea correcto. Corresponde a una parte de la restricción semántica 2.1 (Restricciones para registrar un usuario).
+El disparador de usuario comprueba que al insertar un usuario en la base de datos, el formato del campo ``correo electronico'' sea correcto. Corresponde a una parte de la RS 2.1 (Restricciones para registrar un usuario).
 \lstinputlisting[language=SQL, firstline=20, lastline=30]{src/trigger.sql} 
 
 \subsubsection{Subsistema social}
-El disparador del subsistema social comprueba que antes de dejar un comentario en una canción el usuario la haya escuchado.
+El disparador del subsistema social comprueba que antes de dejar un comentario en una canción el usuario la haya escuchado, RS 4.1.
 \lstinputlisting[language=SQL, firstline=32, lastline=49]{src/trigger.sql} 
