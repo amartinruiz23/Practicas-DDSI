@@ -28,8 +28,9 @@ A continuación se exponen los disparadores creados por cada uno de los integran
 
 \subsubsection{Subsistema de usuarios}
 
+El disparador de usuario comprueba que al insertar un usuario en la base de datos, el formato del campo ``correo electronico'' sea correcto.
 \lstinputlisting[language=SQL, firstline=20, lastline=30]{src/trigger.sql} 
 
 \subsubsection{Subsistema social}
-
+El disparador del subsistema social comprueba que antes de dejar un comentario en una canción el usuario la haya escuchado.
 \lstinputlisting[language=SQL, firstline=32, lastline=49]{src/trigger.sql} 
