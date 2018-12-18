@@ -1,18 +1,20 @@
+#!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
 from Tkinter import *
 import Tkinter, Tkconstants, tkFileDialog
 import mysql.connector as mariadb
 
-def callback():
-    root.filename = tkFileDialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
-
 def check_pass():
-    cursor.execute("SELECT contrasenia FROM usuario WHERE alias='%s'", (entry_user.get()))
+    try:
+        cursor.execute("SELECT contrasenia FROM usuario WHERE alias=%s", (entry_user.get(),))
+    except mariadb.Error as error:
+         print("Error: {}".format(error))       
+
     valid = False
     
     for contrasenia in cursor:
-        if contrasenia == entry_pass.get():
+        if contrasenia[0] == entry_pass.get():
             valid = True
 
     if valid:
@@ -35,8 +37,7 @@ def comment():
 
     mariadb_connection.commit()
 
-
-mariadb_connection = mariadb.connect(user='testuser', password='testuser', database='ddsi')
+mariadb_connection = mariadb.connect(user=sys.argv[1], password=sys.argv[2], database='ddsi')
 cursor = mariadb_connection.cursor()
 
 root = Tk()

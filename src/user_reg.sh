@@ -1,4 +1,4 @@
-#!/bin/python2.7
+#!/usr/bin/python2.7
 # encoding: utf-8
 from Tkinter import *
 import Tkinter, Tkconstants, tkFileDialog
@@ -94,7 +94,7 @@ entry_bio.place(x=240, y=360)
 upload= Button( root, text = 'Upload', command=callback).place(x = 240, y = 320)
 
 
-Button(root, text='Submit',width=20,bg='brown',fg='white', command=register).place(x=180,y=800)
+Button(root, text='Submit',width=20,bg='brown',fg='white', command=register).place(x=180,y=400)
 
 root.mainloop()
 
