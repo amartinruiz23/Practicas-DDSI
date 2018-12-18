@@ -71,7 +71,7 @@ def register():
       print(nombre)
 
 
-mariadb_connection = mariadb.connect(user='user', password='1234', database='ddsi')
+mariadb_connection = mariadb.connect(user=sys.argv[1], password=sys.argv[2], database=sys.argv[3])
 cursor = mariadb_connection.cursor()
 
 root = Tk()

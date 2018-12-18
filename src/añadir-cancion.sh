@@ -37,7 +37,7 @@ def register():
     mariadb_connection.commit()
 
 
-mariadb_connection = mariadb.connect(user='root', password='', database='ddsi')
+mariadb_connection = mariadb.connect(user=sys.argv[1], password=sys.argv[2], database=sys.argv[3])
 cursor = mariadb_connection.cursor()
 
 root = Tk()
