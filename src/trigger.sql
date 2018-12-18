@@ -24,7 +24,9 @@ CREATE TRIGGER emailUsuario
   FOR EACH ROW
 BEGIN
   IF NEW.correo_electronico NOT LIKE '_%@_%.__%' THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Formato de email no valido';
+	IF NEW.correo_electronico NOT LIKE '' THEN
+       		 SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Formato de email no valido';
+	END IF;
   END IF;
 END;//
 delimiter ;
