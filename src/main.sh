@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+# encoding: utf-8
 
 import Tkinter as tk
 import sys
@@ -9,14 +9,25 @@ def user_reg():
      execfile("./user_reg.sh")
 
 def comment_reg():
-     sys.argv = ["./comentar.sh", sys.argv[1], sys.argv[2]]
+     sys.argv = ["./comentar.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
      execfile("./comentar.sh")
+
+def song_reg():
+     sys.argv = ["./añadir-cancion.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
+     execfile("./añadir-cancion.sh")
+
+def search():
+     sys.argv = ["./busqueda.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
+     execfile("./busqueda.sh")
      
 root = tk.Tk()
 root.geometry('500x500')
 b = tk.Button(root, text="Registro de usuarios", command=user_reg).place(x=100, y=200)
 
-s = tk.Button(root, text="Formulario de comentario", command=comment_reg).place(x=100, y=400)
+s = tk.Button(root, text="Añadir un comentario", command=comment_reg).place(x=100, y=400)
 
+j = tk.Button(root, text="Añadir una canción", command=song_reg).place(x=300, y=200)
+
+a = tk.Button(root, text="Búsqueda", command=search).place(x=300, y=400)
 
 root.mainloop()

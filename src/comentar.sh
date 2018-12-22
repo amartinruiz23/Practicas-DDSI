@@ -24,7 +24,8 @@ def check_pass():
         label_error.place(x=80,y=370)
         
     
-def comment():
+def comment():	
+    global label_end_exit
     print "Usuario: " + entry_user.get()
     print "Clave: " + entry_pass.get()
     print "Identificación de canción: " + entry_song.get()
@@ -32,12 +33,14 @@ def comment():
 
     try:
         cursor.execute("INSERT INTO comenta (alias, identificador, texto) VALUES (%s,%s,%s)", (entry_user.get(), entry_song.get(), entry_comment.get()))
+        label_end_text.set("¡Completado!")
     except mariadb.Error as error:
         print("Error: {}".format(error))
+        label_end_text.set("Error: " + format(error))
 
     mariadb_connection.commit()
 
-mariadb_connection = mariadb.connect(user=sys.argv[1], password=sys.argv[2], database='ddsi')
+mariadb_connection = mariadb.connect(user=sys.argv[1], password=sys.argv[2], database=sys.argv[3])
 cursor = mariadb_connection.cursor()
 
 root = Tk()
