@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2.7
 # encoding: utf-8
 
 import Tkinter as tk

@@ -1,4 +1,5 @@
-#!/bin/python2.7
+#!/usr/bin/python2.7
+# encoding: utf-8
 
 from Tkinter import *
 import Tkinter, Tkconstants, tkFileDialog
