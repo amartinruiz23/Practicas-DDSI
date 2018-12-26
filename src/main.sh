@@ -3,22 +3,27 @@
 
 import Tkinter as tk
 import sys
+import subprocess
 
 def user_reg():
-     sys.argv = ["./user_reg.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
-     execfile("./user_reg.sh")
-
+     # sys.argv = ["./user_reg.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
+     # execfile("./user_reg.sh")
+     subprocess.call([sys.executable, './user_reg.sh', sys.argv[1], sys.argv[2], sys.argv[3]])
+     
 def comment_reg():
-     sys.argv = ["./comentar.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
-     execfile("./comentar.sh")
-
+     # sys.argv = ["./comentar.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
+     # execfile("./comentar.sh")  
+     subprocess.call([sys.executable, './comentar.sh', sys.argv[1], sys.argv[2], sys.argv[3]])
+     
 def song_reg():
-     sys.argv = ["./añadir-cancion.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
-     execfile("./añadir-cancion.sh")
-
+     # sys.argv = ["./añadir-cancion.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
+     # execfile("./añadir-cancion.sh")
+     subprocess.call([sys.executable, './cancion.sh', sys.argv[1], sys.argv[2], sys.argv[3]])
+     
 def search():
-     sys.argv = ["./busqueda.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
-     execfile("./busqueda.sh")
+     # sys.argv = ["./busqueda.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
+     # execfile("./busqueda.sh")
+     subprocess.call([sys.executable, './user_reg.sh', sys.argv[1], sys.argv[2], sys.argv[3]])
      
 root = tk.Tk()
 root.geometry('500x500')
