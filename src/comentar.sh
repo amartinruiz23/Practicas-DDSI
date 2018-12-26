@@ -25,7 +25,7 @@ def check_pass():
         
     
 def comment():	
-    global label_end_exit
+    global label_end_text
     print "Usuario: " + entry_user.get()
     print "Clave: " + entry_pass.get()
     print "Identificación de canción: " + entry_song.get()
@@ -75,6 +75,11 @@ entry_comment = Entry(root)
 entry_comment.place(x=240, y=280)
 
 Button(root, text='Añadir',width=20,bg='pink',fg='black', command=check_pass).place(x=180,y=320)
+
+label_end_text = StringVar(root)
+
+label_end = Label(root, textvariable=label_end_text)
+label_end.place(x=10,y=380)
 
 root.mainloop()
 
