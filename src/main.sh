@@ -23,7 +23,7 @@ def song_reg():
 def search():
      # sys.argv = ["./busqueda.sh", sys.argv[1], sys.argv[2], sys.argv[3]]
      # execfile("./busqueda.sh")
-     subprocess.call([sys.executable, './user_reg.sh', sys.argv[1], sys.argv[2], sys.argv[3]])
+     subprocess.call([sys.executable, './busqueda.sh', sys.argv[1], sys.argv[2], sys.argv[3]])
      
 root = tk.Tk()
 root.geometry('500x500')
