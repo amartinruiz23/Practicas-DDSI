@@ -21,8 +21,11 @@ def register():
     print "Autor: " + entry_author.get()
     print "Género: " + entry_genre.get()
     print "Álbum: " + entry_album.get()
-    
-    date = datetime(year=int(entry_date3.get()), month=int(entry_date2.get()), day=int(entry_date1.get()))
+
+    if entry_date3.get() == '':
+        date = datetime(year=9999,month=12,day=31)
+    else:
+        date = datetime(year=int(entry_date3.get()), month=int(entry_date2.get()), day=int(entry_date1.get()))
 
     hash = hashlib.sha1()
     hash.update(str(time.time()))
